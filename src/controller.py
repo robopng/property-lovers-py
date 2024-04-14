@@ -4,7 +4,7 @@ class Controller:
         self.state = state
 
     def begin(self, renderer):
-        """e
+        """
         Begin the logical process of the Controller.
         :param renderer: A window to render the showrunner's objects onto
         """
