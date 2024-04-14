@@ -1,6 +1,8 @@
 import pygame
-from sim.sim_showrunner import SimShowrunner
-from platform.platform_showrunner import PlatformShowrunner
+from src.sim.sim_showrunner import SimShowrunner
+from src.platform.platform_showrunner import PlatformShowrunner
+from src.menu.main_menu_showrunner import MainMenuShowrunner
+from src.menu.menu_showrunner import MenuShowrunner
 from renderer import Renderer
 
 # pygame setup
@@ -12,30 +14,29 @@ in_sim = in_plat = False
 # in_menu = True
 
 renderer = Renderer()
-simulator = SimShowrunner()
-platformer = PlatformShowrunner()
-main_menu = None
-menu = None
+simulator = SimShowrunner(renderer)
+platformer = PlatformShowrunner(renderer)
+main_menu = MainMenuShowrunner(renderer)
+menu = MenuShowrunner(renderer)
 code_table = {
     "SIM": simulator,
     "PLAT": platformer,
     "MAIN_MENU": main_menu,
     "MENU": menu,
-    "NONE": None
+    "NONE": None,
+    "LAST": None  # memory code
 }
 code = "MAIN_MENU"
 
-# # poll for events
-# for event in pygame.event.get():
-#     if event.type == pygame.QUIT:
-#         pygame.quit()
-
 # yield complete control to respective showrunner
 # when showrunner needs to stop, it will return code of the next showrunner in line
-while condition := code_table[code] is not None:
+while (condition := code_table[code]) is not None:
+    code_table["LAST"] = condition
     # see controller.py
-    condition.begin(renderer)
-    code = condition.get_code()
+    condition.begin()
+    # pass unconditionally. in the case we are in a local menu (e.g. hitting the esc key inside the sim),
+    # use memory to return to where we opened the menu from
+    code = condition.get_code() if code != "MENU" else "LAST"
 
 # # flip() the display to put your work on screen
 # pygame.display.flip()

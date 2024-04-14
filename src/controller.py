@@ -1,12 +1,12 @@
 class Controller:
-    def __init__(self, return_code, state):
+    def __init__(self, return_code, state, renderer):
         self.return_code = return_code
         self.state = state
+        self.renderer = renderer
 
-    def begin(self, renderer):
+    def begin(self):
         """
         Begin the logical process of the Controller.
-        :param renderer: A window to render the showrunner's objects onto
         """
         # make a window & cast nothing onto it (will be handled by children)
 
