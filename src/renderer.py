@@ -6,12 +6,21 @@ class Renderer:
         self.screen = screen
         self.clock = clock
         self.background = None
+        self.background_rect = None
 
-    def display(self, targets):
+    def display_sprites(self, targets):
         for target in targets:
             target.update()
             target.draw(self.screen)
         pygame.display.flip()
+
+    def display_background(self, name):
+        # NEVER change this. ever. this is tantamount to an absolute path, NOTHING else will work.
+        # Believe me.
+        # I have tried.
+        self.background = pygame.image.load(f"../art/backgrounds/{name}")
+        self.background_rect = self.background.get_rect()
+        self.screen.blit(self.background, self.background_rect)
 
 
 class Box(pygame.sprite.Sprite):
@@ -21,18 +30,3 @@ class Box(pygame.sprite.Sprite):
         self.image.fill('white')
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
-
-
-pygame.init()
-rend = Renderer(pygame.display.set_mode((1920, 1080)), pygame.time.Clock())
-boxes = pygame.sprite.Group()
-running = True
-for i in range(10):
-    boxes.add(Box(i * 100, i * 100))
-while running:
-    # poll for events
-    # pygame.QUIT event means the user clicked X to close your window
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    rend.display([boxes])
