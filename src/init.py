@@ -1,19 +1,18 @@
 import pygame
+# it gets upset without the src. for some of these
 from src.sim.sim_showrunner import SimShowrunner
 from src.platform.platform_showrunner import PlatformShowrunner
 from src.menu.main_menu_showrunner import MainMenuShowrunner
 from src.menu.menu_showrunner import MenuShowrunner
-from renderer import Renderer
+from src.renderer import Renderer
 
 # pygame setup
 pygame.init()
 # all users of larger monitors get destroyed
 screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
-in_sim = in_plat = False
-# in_menu = True
 
-renderer = Renderer()
+renderer = Renderer(screen, clock)
 simulator = SimShowrunner(renderer)
 platformer = PlatformShowrunner(renderer)
 main_menu = MainMenuShowrunner(renderer)
