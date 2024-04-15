@@ -54,8 +54,7 @@ class SimShowrunner(Controller):
                 # take inputs until one of them is a click on a box
                 # process any other button clicks otherwise
                 result = None
-                self.scroll.jump(result)
-                pass
+                self.scroll.jump(result)  # and add the value to the renderer
             # render and sleep
         # fade out effects, show how the player did, sleep
         # await input
@@ -66,6 +65,7 @@ class SimShowrunner(Controller):
 class MenuBox(pygame.sprite.Sprite):
     """
     Any menu box item in the dating sim - dialog boxes, menu boxes, etc.
+    MenuBox instances may include a listener, or may be static elements on the screen.
     """
     def __init__(self, x, y, length, width):
         pygame.sprite.Sprite.__init__()
@@ -79,4 +79,16 @@ class MenuBox(pygame.sprite.Sprite):
         self.listener = None
 
     def set_listener(self, listener):
+        """
+        Add a listener to the MenuBox instance for instances that are subject to player interaction.
+        :param listener: listener to be added to the box object
+        """
+        pass
+
+    def check_listener(self, event):
+        """
+        Check whether an event that has occurred is within the bounds of this MenuBox instance.
+        :param event: the event triggered
+        :return: whether the provided event pertains to this listener
+        """
         pass
