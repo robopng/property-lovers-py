@@ -12,7 +12,7 @@ pygame.init()
 screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
 
-renderer = Renderer()
+renderer = Renderer(screen, clock)
 simulator = SimShowrunner(renderer)
 platformer = PlatformShowrunner(renderer)
 main_menu = MainMenuShowrunner(renderer)

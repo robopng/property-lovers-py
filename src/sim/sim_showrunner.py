@@ -1,3 +1,4 @@
+import pygame
 from src.controller import Controller
 from dialog_scroll import DialogController
 
@@ -11,6 +12,7 @@ class SimShowrunner(Controller):
         self.current_date_success = 0
         self.house = f'art/{self.date_code}.png'
         self.scroll = DialogController(f'dialog/{self.date_code}.json')
+        self.boxes = pygame.sprite.Group()
 
     def begin(self):
         # render effects; fade in, show house, sleep slightly for dramatic pause
@@ -31,4 +33,5 @@ class SimShowrunner(Controller):
             # render and sleep
         # fade out effects, show how the player did, sleep
         # await input
+        # write save state
         self.return_code = 'PLAT'
