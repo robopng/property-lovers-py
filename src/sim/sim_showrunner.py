@@ -1,6 +1,6 @@
 import pygame
 from src.controller import Controller
-from dialog_scroll import DialogController
+from src.sim.dialog_scroll import DialogController
 
 
 class SimShowrunner(Controller):
@@ -17,7 +17,8 @@ class SimShowrunner(Controller):
         self.date_code = 0
         self.current_date_success = 0
         self.house = f'art/{self.date_code}.png'
-        self.scroll = DialogController(f'dialog/{self.date_code}.json')
+        # working directory is always src
+        self.scroll = DialogController(f'../dialog/{self.date_code}.json')
         self.boxes = pygame.sprite.Group()
 
     def begin(self):
