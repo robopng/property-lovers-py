@@ -16,12 +16,35 @@ class SimShowrunner(Controller):
         # probably will come in from a save state file
         self.date_code = 0
         self.current_date_success = 0
-        self.house = f'art/{self.date_code}.png'
-        # working directory is always src
+        # sprite and menu box initialization
+        self.sprites = pygame.sprite.Group()
+        self.npc_house = CharacterSprite(f'art/{self.date_code}.png')
+        # self.pc_house
+        # self.player
+        # always display static boxes
+        self.static_boxes = (
+            # return to menu button
+            MenuSprite(0, 0, 100, 100),
+            # main dialog display
+            MenuSprite(0, 0, 100, 100),
+        )
+        # only display dynamic boxes when needed
+        self.dynamic_boxes = (
+            # player dialog 1
+            MenuSprite(0, 0, 100, 100),
+            # player dialog 2
+            MenuSprite(0, 0, 100, 100),
+            # player dialog 3
+            MenuSprite(0, 0, 100, 100),
+        )
+        self.renderer = renderer
+        self.renderer.set_background(self.date_code)
+        self.renderer.set_targets(self.sprites)
         self.scroll = DialogController(f'../dialog/{self.date_code}.json')
-        self.boxes = pygame.sprite.Group()
+        self.running = True
 
     def begin(self):
+        print("Made it Sim!")
         """
         Begin the loop of the dating sim.
         When finished, or if interrupted, the object's return_code variable will be
@@ -36,40 +59,56 @@ class SimShowrunner(Controller):
                 "LAST" = memory code (irrelevant)
                }
         """
-        running = True
         # render effects; fade in, show house, sleep slightly for dramatic pause
         # add self.scroll.current_line() to be rendered
-        # await event for reading time
-        while self.scroll.has_next() and running:
-            # poll for events
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT: running = False
-                # if event.type == mouse click: pass to listeners
-                # if event.type == something else: do something else
-
+        # sit in place until the user gives a valid input
+        while self.poll(self.static_boxes) is None: pass
+        while self.scroll.has_next() and self.running:
+            # await click on last dialog to proceed
+            while self.poll(self.static_boxes) is None: pass
             next_line = self.scroll.next()
-            if len(next_line) == 1: pass  # add the value in next to the renderer
+            if len(next_line) == 1:
+                # no player input needed
+                # add the value in next to a static box
+                pass
             else:
-                # add the three values in next to the renderer
+                # add the three values in next to the dynamic boxes
                 # render and sleep
                 # take inputs until one of them is a click on a box
                 # process any other button clicks otherwise
-                result = None
+                result = 0
                 self.scroll.jump(result)  # and add the value to the renderer
             # render and sleep
+            self.renderer.display()
         # fade out effects, show how the player did, sleep
-        # await input
+        while self.poll(self.static_boxes) is None: pass
         # write save state
         self.return_code = 'PLAT'
+        return self.return_code
+
+    def poll(self, boxes):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.running = False
+                return -1
+            if event.type == pygame.MOUSEBUTTONUP:
+                clicked_boxes = [box for box in boxes if box.get_rect().collidepoint(pygame.mouse.get_pos)]
+                for box in clicked_boxes:
+                    # try to avoid chaining any more if statements here if possible. maybe consider
+                    # a dictionary of consequences
+                    # check if the box has player input; return the corresponding code
+                    # check if the box is a menu button; process that consequence
+                    pass
+        return None
 
 
-class MenuBox(pygame.sprite.Sprite):
+class MenuSprite(pygame.sprite.Sprite):
     """
     Any menu box item in the dating sim - dialog boxes, menu boxes, etc.
     MenuBox instances may include a listener, or may be static elements on the screen.
     """
-    def __init__(self, x, y, length, width):
-        pygame.sprite.Sprite.__init__()
+    def __init__(self, x, y, length, width, content=None, visible=True):
+        super().__init__()
         # when we get images for the menu elements use those
         # self.image = pygame.image.load("path/to/element")
         self.image = pygame.Surface(length, width)
@@ -77,19 +116,20 @@ class MenuBox(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        self.listener = None
+        self.content = content
 
-    def set_listener(self, listener):
-        """
-        Add a listener to the MenuBox instance for instances that are subject to player interaction.
-        :param listener: listener to be added to the box object
-        """
-        pass
+    def get_rect(self):
+        return self.rect
 
-    def check_listener(self, event):
-        """
-        Check whether an event that has occurred is within the bounds of this MenuBox instance.
-        :param event: the event triggered
-        :return: whether the provided event pertains to this listener
-        """
-        pass
+    def set_content(self, content):
+        self.content = content
+
+    def has_content(self):
+        return self.content is not None
+
+
+class CharacterSprite(pygame.sprite.Sprite()):
+    def __init__(self, path):
+        super().__init__()
+        self.image = pygame.image.load(path)
+        self.rect = self.image.get_rect()

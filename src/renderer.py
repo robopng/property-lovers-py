@@ -2,38 +2,37 @@ import pygame
 
 
 class Renderer:
-    def __init__(self, screen, clock, fps=60):
+    def __init__(self, screen, clock, background, fps=60, targets=pygame.sprite.Group()):
         self.screen = screen
         self.clock = clock
         self.fps = fps
-        self.background = None
-        self.background_rect = None
-
-    def display_background(self, name):
-        """
-        Display a given background by name.
-        :param name: the name of the background to be displayed, without path references
-        """
-        # NEVER change this. ever. this is tantamount to an absolute path, NOTHING else will work.
-        # Believe me.
-        # I have tried.
-        self.background = pygame.image.load(f"../art/backgrounds/{name}")
+        self.background = pygame.image.load(f'../art/backgrounds/{background}').convert()
         self.background_rect = self.background.get_rect()
-        self.screen.blit(self.background, self.background_rect)
+        self.targets = targets
 
-    def display_sprites(self, targets):
+    def display(self, targets=None):
         """
-        Draw a set of sprite groups of predefined sprites, then display everything on the screen
-        :param targets: zero or more sprite groups to be displayed; if there are no targets,
-                        the method will only flip the screen.
+        Display all elements currently contained in the Renderer instance or display
+        a given set of targets over the Renderer instance's background
+        :param targets: an optional set of new sprite groups to be displayed
         """
+        # wouldn't let me use self.targets as a default
+        if targets is None: targets = self.targets
+        self.screen.blit(self.background, self.background_rect)
         for target in targets:
             target.update()
             target.draw(self.screen)
         pygame.display.flip()
         self.clock.tick(self.fps)
 
-    def update_fps(self, fps):
+    def set_targets(self, targets):
+        self.targets = targets
+
+    def set_background(self, background):
+        self.background = pygame.image.load(f'../art/backgrounds/{background}').convert()
+        self.background_rect = self.background.get_rect()
+
+    def set_fps(self, fps):
         """
         Set a new target fps for the renderer instance.
         :param fps: new target fps

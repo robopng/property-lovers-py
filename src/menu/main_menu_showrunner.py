@@ -7,3 +7,4 @@ class MainMenuShowrunner(Controller):
 
     def begin(self):
         print("Made it!")
+        self.return_code = "SIM"
