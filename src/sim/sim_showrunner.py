@@ -18,7 +18,7 @@ class SimShowrunner(Controller):
         self.current_date_success = 0
         # sprite and menu box initialization
         self.sprites = pygame.sprite.Group()
-        self.npc_house = CharacterSprite(f'art/{self.date_code}.png')
+        self.npc_house = CharacterSprite(f'art/sim_sprites/{self.date_code}.png')
         # self.pc_house
         # self.player
         # always display static boxes
@@ -44,7 +44,6 @@ class SimShowrunner(Controller):
         self.running = True
 
     def begin(self):
-        print("Made it Sim!")
         """
         Begin the loop of the dating sim.
         When finished, or if interrupted, the object's return_code variable will be
