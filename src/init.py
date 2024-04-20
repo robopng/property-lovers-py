@@ -11,7 +11,9 @@ pygame.init()
 # all users of larger monitors get destroyed
 screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
-
+# the four runners and their universal renderer -
+# no handovers or interactions need to be considered within the bounds
+# of init.py
 renderer = Renderer(screen, clock)
 simulator = SimShowrunner(renderer)
 platformer = PlatformShowrunner(renderer)
@@ -36,9 +38,4 @@ while (condition := code_table[code]) is not None:
     # pass unconditionally. in the case we are in a local menu (e.g. hitting the esc key inside the sim),
     # use memory to return to where we opened the menu from
     code = condition.get_code() if code != "MENU" else "LAST"
-
-# # flip() the display to put your work on screen
-# pygame.display.flip()
-#
-# clock.tick(60)  # limits FPS to 60
 pygame.quit()
