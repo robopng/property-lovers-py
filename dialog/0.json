@@ -11,11 +11,11 @@
   },
   {
     "options":
-    [
-      {"Option 1": "1"},
-      {"Option 2": "2"},
-      {"Option 3": "3"}
-    ],
+    {
+      "Option 1": "1",
+      "Option 2": "2",
+      "Option 3": "3"
+    },
     "from": "last",
     "next": "jump"
   },

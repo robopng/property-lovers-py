@@ -32,7 +32,7 @@ class DialogController:
         self.current += 1
         code = self.full_text[self.current]['next']
         if code == 'jump':
-            line = self.full_text[self.current]['options']
+            line = self.full_text[self.current]['options'].keys()
         else:
             line = [self.full_text[self.current]['text']]  # convert to list for showrunner to handle
         return line
@@ -43,7 +43,7 @@ class DialogController:
         :param pos: The corresponding value of the player's choice
         :return: The NPC's response to the player's input choice
         """
-        assert self.full_text[self.current + pos]['from'] == pos
+        assert self.full_text[self.current + pos]['from'] == str(pos)
         self.current += pos
         return self.full_text[self.current]['text']
 

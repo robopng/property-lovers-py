@@ -62,9 +62,11 @@ class LevelScanner:
         # 4 for loops. wow! can this be shortened to a np expression..?
         for i in range(len(self.blocks)):
             for j in range(len(self.blocks[i])):
-                for pixel in [row for row in self.blocks[i][j]]:
-                    if pixel.tolist() == COLORS["SPAWNPOINT"]:
-                        self.current_block = (i, j)
+                for row in self.blocks[i][j]:
+                    for pixel in row:
+                        if pixel.tolist() == COLORS["SPAWNPOINT"]:
+                            self.current_block = (i, j)
+                            return
 
     def get_block_texture_array(self):
         """
