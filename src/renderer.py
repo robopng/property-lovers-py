@@ -35,7 +35,8 @@ class Renderer:
 
     def display_text(self, targets):
         for target in targets:
-            self.screen.blit(target.get_content(), target.get_content_pos())
+            if target.has_content():
+                self.screen.blit(target.get_content(), target.get_content_pos())
         pygame.display.flip()
 
     def display_background(self, background=None):

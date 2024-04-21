@@ -1,9 +1,9 @@
 from src.controller import Controller
 
 
-class PlatformShowrunner(Controller):
+class PlatformShowrunner:
     def __init__(self, renderer):
-        super().__init__("NONE", "NONE", renderer)
+        pass
 
     def begin(self):
         # load in level scanner
@@ -18,7 +18,7 @@ class PlatformShowrunner(Controller):
         #    display
         # if player survived, and EoL reached, write out stats
         # if player died, give option to retry
-        pass
+        return "MAIN_MENU"
 
     def poll(self):
         # events to consider:

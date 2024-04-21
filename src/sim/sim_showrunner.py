@@ -5,7 +5,7 @@ from src.sim.character import CharacterSprite
 from src.menu_element import MenuSprite
 
 
-class SimShowrunner(Controller):
+class SimShowrunner:
     """
     The showrunner for the dating sim aspect of the game.
     SimShowrunner handles the core loop of the dating sim and, using
@@ -13,17 +13,21 @@ class SimShowrunner(Controller):
     when to display its elements.
     """
     def __init__(self, renderer):
-        super().__init__("NONE", "NONE", renderer)
         # find a way to change this dynamically later
         # probably will come in from a save state file
         self.date_code = 0
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(self.date_code)
+        self.npc_house = CharacterSprite(f'../art/sim_sprites/{self.date_code}.png')
         # self.pc_house
         # self.player
         # always display static boxes
         self.sprites = pygame.sprite.Group()
+        # too tired to think of a better method for this right now
+        self.NPC_DIALOG = 4
+        self.PLAYER_DIALOG = 1
+        self.STATICS = 0
+        menu_box_path = '../art/sim_sprites/0.png'
         self.boxes = (
             # return to menu button
             MenuSprite(200, 200, 100, 100, content="Menu", consequence=-10),
@@ -38,11 +42,8 @@ class SimShowrunner(Controller):
             # npc dialog
             MenuSprite(200, 500, 100, 100, consequence=-100),
         )
-        # too tired to think of a better method for this right now
-        self.NPC_DIALOG = 4
-        self.PLAYER_DIALOG = 1
-        self.STATICS = 0
         self.sprites.add(self.boxes[self.STATICS])
+        self.sprites.add(self.npc_house)
         self.renderer = renderer
         self.renderer.set_background(self.date_code)
         self.scroll = DialogController(self.date_code)
@@ -70,10 +71,11 @@ class SimShowrunner(Controller):
         # self.renderer.display_background()
         # while self.poll(self.static_boxes) is None: pass
         self.sprites.add(self.boxes[self.NPC_DIALOG])
+        self.renderer.set_background(self.date_code)
         self.renderer.display(self.sprites, text=True)
         while self.scroll.has_next():
             # await click on last dialog to proceed
-            while (result := self.poll(self.boxes)) is None: pass
+            while (result := self.poll()) is None: pass
             # code repetition with player choice handling
             if result[0] == -10:
                 self.return_code = 'MENU'
@@ -93,7 +95,7 @@ class SimShowrunner(Controller):
                 self.renderer.display(self.sprites, text=True)
 
                 # take inputs until one of them is a click on a box
-                while (result := self.poll(self.boxes)) is None: pass
+                while (result := self.poll()) is None: pass
                 if result[0] == -10:
                     self.return_code = 'MENU'
                     return self.return_code
@@ -106,20 +108,20 @@ class SimShowrunner(Controller):
             self.renderer.display(self.sprites, text=True)
             # sleep
         # fade out effects, show how the player did, sleep
-        while self.poll(self.boxes) is None: pass
+        while self.poll() is None: pass
         # write save state
-        self.return_code = 'PLAT'
-        return self.return_code
+        return "PLAT"
 
-    @staticmethod
-    def poll(boxes):
+    def poll(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # certainly, there must be some consequence to having it like this.
                 # otherwise, everything would use this instead of the run=True method...
                 # still, I can't think of one, so it stays!
-                pygame.quit()
+                exit()
             if event.type == pygame.MOUSEBUTTONUP:
-                r = [box.get_consequence() for box in boxes if box.get_rect().collidepoint(pygame.mouse.get_pos())]
+                r = [box.get_consequence()
+                     for box in self.boxes
+                     if box.get_rect().collidepoint(pygame.mouse.get_pos())]
                 return r if r != [] else None
         return None

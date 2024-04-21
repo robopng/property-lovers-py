@@ -3,7 +3,6 @@ import pygame
 from src.sim.sim_showrunner import SimShowrunner
 from src.platform.platform_showrunner import PlatformShowrunner
 from src.menu.main_menu_showrunner import MainMenuShowrunner
-from src.menu.menu_showrunner import MenuShowrunner
 from src.renderer import Renderer
 
 # pygame setup
@@ -19,7 +18,7 @@ code_table = {
     "SIM": SimShowrunner(renderer),
     "PLAT": PlatformShowrunner(renderer),
     "MAIN_MENU": MainMenuShowrunner(renderer),
-    "MENU": MenuShowrunner(renderer),
+    "MENU": MainMenuShowrunner(renderer),  # functionless until the game expands to have a separate in-level menu
     "NONE": None,
     "LAST": None  # memory code
 }
@@ -30,8 +29,8 @@ code = "MAIN_MENU"
 while (condition := code_table[code]) is not None:
     code_table["LAST"] = condition
     # see controller.py
-    condition.begin()
+    code = condition.begin()
     # pass unconditionally. in the case we are in a local menu (e.g. hitting the esc key inside the sim),
     # use memory to return to where we opened the menu from
-    code = condition.get_code() if code != "MENU" else "LAST"
+    if "MENU" in code: code = "LAST"
 pygame.quit()
