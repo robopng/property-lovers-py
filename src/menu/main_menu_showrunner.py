@@ -16,10 +16,10 @@ class MainMenuShowrunner:
             # MenuSprite(200, 500, 100, 100),
         )
         self.sprites = pygame.sprite.Group(self.boxes)
-        self.renderer.set_background('BeachBG')
-        self.renderer.set_targets(pygame.sprite.Group(self.boxes))
 
     def begin(self):
+        self.renderer.set_background('BeachBG')
+        self.renderer.set_targets(pygame.sprite.Group(self.boxes))
         while True:
             results = self.poll()
             if results is not None and results != []:
@@ -31,7 +31,7 @@ class MainMenuShowrunner:
 
     def poll(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT: pygame.quit()
+            if event.type == pygame.QUIT: exit()
             if event.type == pygame.MOUSEBUTTONUP:
                 return [box.get_consequence()
                         for box in self.boxes

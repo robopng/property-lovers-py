@@ -1,5 +1,4 @@
 import pygame
-from src.controller import Controller
 from src.sim.dialog_controller import DialogController
 from src.sim.character import CharacterSprite
 from src.menu_element import MenuSprite
@@ -45,7 +44,6 @@ class SimShowrunner:
         self.sprites.add(self.boxes[self.STATICS])
         self.sprites.add(self.npc_house)
         self.renderer = renderer
-        self.renderer.set_background(self.date_code)
         self.scroll = DialogController()
 
     def begin(self):
@@ -68,7 +66,7 @@ class SimShowrunner:
         while self.scroll.has_next():
             # await click on last dialog to proceed
             while (result := self.poll()) is None: pass
-            # code repetition with player choice handling
+            # every time poll is called it needs to handle the static boxes & this cannot be inlined to a func
             if result[0] == -10: return "MENU"
             next_line = self.scroll.next()  # FROM LAST in dialog file
 
@@ -102,7 +100,8 @@ class SimShowrunner:
             self.renderer.display(self.sprites, text=True)
             # sleep
         # fade out effects, show how the player did, sleep
-        while self.poll() is None: pass
+        while (result := self.poll()) is None: pass
+        if result[0] == -10: return "MENU"
         # write save state
         self.scroll.empty_file()
         # self.date_code += 1

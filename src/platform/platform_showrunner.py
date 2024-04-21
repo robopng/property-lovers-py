@@ -1,4 +1,3 @@
-from src.controller import Controller
 
 
 class PlatformShowrunner:
