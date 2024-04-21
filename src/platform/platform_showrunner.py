@@ -18,7 +18,7 @@ class PlatformShowrunner:
         #    display
         # if player survived, and EoL reached, write out stats
         # if player died, give option to retry
-        return "MAIN_MENU"
+        return "SIM"
 
     def poll(self):
         # events to consider:

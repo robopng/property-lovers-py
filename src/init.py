@@ -32,5 +32,7 @@ while (condition := code_table[code]) is not None:
     code = condition.begin()
     # pass unconditionally. in the case we are in a local menu (e.g. hitting the esc key inside the sim),
     # use memory to return to where we opened the menu from
-    if "MENU" in code: code = "LAST"
+    if "MENU" in code:
+        code_table[code].begin()
+        code = "LAST"
 pygame.quit()

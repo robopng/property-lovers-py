@@ -64,17 +64,9 @@ class Box(pygame.sprite.Sprite):
     A testing class for renderer objects.
     Creates a white dummy box sprite to be displayed.
     """
-
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.Surface((30, 30))
         self.image.fill('white')
         self.rect = self.image.get_rect()
         self.rect.center = (x, y)
-
-#
-# screen = pygame.display.set_mode((1920, 1080))
-# clock = pygame.time.Clock()
-# r = Renderer(screen, clock)
-# while True:
-#     r.display()

@@ -22,12 +22,12 @@ class MainMenuShowrunner:
     def begin(self):
         while True:
             results = self.poll()
-            if results is not None:
+            if results is not None and results != []:
                 result = results[0]
                 if result == -1: exit()
                 elif result == 0: return "NONE"
                 elif result == 1: return "SIM"
-            self.renderer.display()
+            self.renderer.display(text=True)
 
     def poll(self):
         for event in pygame.event.get():

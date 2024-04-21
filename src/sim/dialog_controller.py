@@ -14,12 +14,19 @@ class DialogController:
       - On a player line, key 'next' will always be 'jump', and the 3 options following will
         have key 'from' be 1, 2, or 3, corresponding to the values in the 'options' list
     """
-    def __init__(self, name):
+    def __init__(self):
         # this is a more inefficient way of performing this, but allows for dynamic
         # jumping across several lines, instead of needing to read one at a time.
         # if dynamic jumping is not required, just use the file directly (no list).
+        self.full_text = []
+        self.current = 0
+
+    def load_file(self, name):
         with open(f'../dialog/{name}.json', mode='r') as file:
             self.full_text = json.load(file)
+
+    def empty_file(self):
+        self.full_text = []
         self.current = 0
 
     def next(self):
@@ -46,16 +53,33 @@ class DialogController:
         self.current += pos
         return self.full_text[self.current]['text']
 
+    def walk_back(self):
+        """
+        Walk the scroll back to the nearest non-jump and non-input dialog line.
+        """
+        # change this if there are ever multiple linked jumps
+        self.current -= 1
+
     def current_line(self):
         """
-        Get the current line of dialog.
-        :return: the current line of dialog
+        :return: the current line of dialog in the loaded file
         """
         return self.full_text[self.current]['text']
 
+    def awaiting(self):
+        """
+        :return: whether the scroll is awaiting player input at the moment
+        """
+        return self.full_text[self.current]['text'] == 'player input'
+
+    def has_file(self):
+        """
+        :return: whether the scroll is currently loaded with a dialog file
+        """
+        return len(self.full_text) > 0
+
     def has_next(self):
         """
-        Determine whether the end of the dialog tree has been reached.
-        :return: whether there is more dialog remaining
+        :return: whether there is more dialog remaining in the loaded dialog file
         """
-        return self.full_text[self.current]['next'] != 'end'
+        if self.has_file(): return self.full_text[self.current]['next'] != 'end'
