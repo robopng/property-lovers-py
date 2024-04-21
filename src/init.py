@@ -15,15 +15,11 @@ clock = pygame.time.Clock()
 # no handovers or interactions need to be considered within the bounds
 # of init.py
 renderer = Renderer(screen, clock)
-simulator = SimShowrunner(renderer)
-platformer = PlatformShowrunner(renderer)
-main_menu = MainMenuShowrunner(renderer)
-menu = MenuShowrunner(renderer)
 code_table = {
-    "SIM": simulator,
-    "PLAT": platformer,
-    "MAIN_MENU": main_menu,
-    "MENU": menu,
+    "SIM": SimShowrunner(renderer),
+    "PLAT": PlatformShowrunner(renderer),
+    "MAIN_MENU": MainMenuShowrunner(renderer),
+    "MENU": MenuShowrunner(renderer),
     "NONE": None,
     "LAST": None  # memory code
 }

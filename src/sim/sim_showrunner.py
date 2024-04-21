@@ -116,7 +116,7 @@ class SimShowrunner(Controller):
                 # certainly, there must be some consequence to having it like this.
                 # otherwise, everything would use this instead of the run=True method...
                 # still, I can't think of one, so it stays!
-                exit()
+                pygame.quit()
             if event.type == pygame.MOUSEBUTTONUP:
                 r = [box.get_consequence() for box in boxes if box.get_rect().collidepoint(pygame.mouse.get_pos())]
                 return r if r != [] else None
