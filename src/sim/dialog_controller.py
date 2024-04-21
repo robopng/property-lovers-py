@@ -14,12 +14,11 @@ class DialogController:
       - On a player line, key 'next' will always be 'jump', and the 3 options following will
         have key 'from' be 1, 2, or 3, corresponding to the values in the 'options' list
     """
-    def __init__(self, path):
-        self.path = path
+    def __init__(self, name):
         # this is a more inefficient way of performing this, but allows for dynamic
         # jumping across several lines, instead of needing to read one at a time.
         # if dynamic jumping is not required, just use the file directly (no list).
-        with open(path, mode='r') as file:
+        with open(f'../dialog/{name}.json', mode='r') as file:
             self.full_text = json.load(file)
         self.current = 0
 
