@@ -10,6 +10,7 @@
     "next": "continue"
   },
   {
+    "text": "player input",
     "options":
     {
       "Option 1": "1",
