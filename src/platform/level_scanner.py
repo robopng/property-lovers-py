@@ -15,7 +15,7 @@ COLORS = {
     "DETONATOR": [109, 2, 2],
     "TNT": [190, 70, 70],
     "BREAKABLE_DOOR": [50, 60, 57],
-    "HAMMER": [118, 66, 138],  # ?
+    "HAMMER": [118, 66, 138],  # collectibles
     "FALLING_BLOCK": [143, 86, 59],
     "LOOSE_BOARD": [102, 57, 49]
 }
