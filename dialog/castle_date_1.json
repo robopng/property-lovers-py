@@ -21,19 +21,19 @@
     "jump": "player"
   },
   {
-    "text": "And I, in turn, am glad to be appreciated!",
+    "text": {"And I, in turn, am glad to be appreciated!": "4"},
     "from": "1",
     "next": "jump"
     "jump": "npc"
   },
   {
-    "text": "Hah… well, er… m-my thanks! I quite like your… umm…",
+    "text": {"Hah… well, er… m-my thanks! I quite like your… umm…": "4"},
     "from": "2",
     "next": "jump"
     "jump": "npc"
   },
   {
-    "text": "I appreciate the attempt, but I must admit I found that somewhat offensive.",
+    "text": {"I appreciate the attempt, but I must admit I found that somewhat offensive.": "4"},
     "from": "3",
     "next": "jump"
     "jump": "npc"
