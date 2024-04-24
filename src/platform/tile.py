@@ -2,6 +2,7 @@ import pygame
 import random
 
 
+# ONLY for tiles and spikes.
 def decide_texture(tileUp, tileLeft, tileDown, tileRight, activeTile):
     """
         find neighboring tiles, only 4 around it (if edge tile, assume air on other side of edge)
@@ -43,32 +44,66 @@ def decide_texture(tileUp, tileLeft, tileDown, tileRight, activeTile):
     same = [activeTile == tileUp, activeTile == tileLeft, activeTile == tileDown, activeTile == tileRight]
     sameSum = same[0] + same[1] + same[2] + same[3]
     if sameSum == 4:
-        tile = 3
+        tile = 4
         orientation = random.choice([2, 4])
     elif sameSum == 3:
-        tile = 1
+        tile = 2
         for x in range(len(same)):
             if not same[x]:
                 orientation = (x + 2) % 4 + 1
     elif sameSum == 2:
         if same[0] != same[2]:  # check if we should use angle
-            tile = 2
+            tile = 3
             for x in range(len(same)):
                 if not same[x] and not same[(x + 1) % 4]:
                     orientation = x + 1
         else:  # all angled options are gone, same[1] here indicates vert or hoz
-            tile = 3
+            tile = 4
             orientation = random.choice([1 + same[0], 3 + same[0]])
             # options are 1 and 3 (horizontal) if the top is different from middle, 2 and 4 otherwise
     elif sameSum == 1:
-        tile = 3
+        tile = 4
         for x in range(len(same)):
             if same[x]:
                 orientation = (x + 2) % 4
     else:
-        tile = 0
+        tile = 1
         orientation = random.randint(1, 4)  # random orientation for solo tile
     return tile, orientation
+
+
+# A special texture is ANY texture that isn't a tile or a spike.
+def decide_special_texture(up, left, down, right):
+    """
+    :param - send true if there's a WALL tile next to it. These are only the complete blocks
+    Many of these only have one point of contact to the ground, so the default (orient 1) is grounded.
+    1: ground, then counter-clockwise (2 is right wall, 3 ceiling, 4 left wall)
+        - can send Nones, are corrected to false
+
+    If there's a floor, orient to the floor.
+    If there's a wall, orient to the wall if there isn't another wall
+    If there's a ceiling with 0 or 2 walls, orient to the ceiling
+    """
+    if left is None:
+        left = False
+    if down is None:
+        down = False
+    if right is None:
+        right = False
+    if up is None:
+        up = False
+    if not down:
+        if left and not right:
+            orientation = 4
+        elif right and not left:
+            orientation = 2
+        elif up:
+            orientation = 3
+        else:
+            orientation = 1
+    else:
+        orientation = 1
+    return orientation
 
 
 class Tile(pygame.sprite.Sprite):
