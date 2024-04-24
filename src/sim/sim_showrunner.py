@@ -66,7 +66,8 @@ class SimShowrunner:
         while self.scroll.has_next():
             # await click on last dialog to proceed
             while (result := self.poll()) is None: pass
-            # every time poll is called it needs to handle the static boxes & this cannot be inlined to a func
+            # every time poll is called it needs to handle the static boxes
+            # handling the return, at least, cannot be delegated to a function (as far as I'm aware)
             if result[0] == -10: return "MENU"
             next_line = self.scroll.next()  # FROM LAST in dialog file
 
