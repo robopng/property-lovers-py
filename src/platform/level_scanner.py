@@ -2,30 +2,6 @@ from PIL import Image
 import numpy as np
 from src.platform.tile import Tile, decide_texture
 
-COLORS = {
-    "TRANSPARENT": [0, 0, 0, 0],
-    "BLACK": [0, 0, 0],
-    "WHITE": [255, 255, 255],
-    "ROPE": [138, 111, 48],
-    "TILE_TYPE_1": [23, 31, 16],
-    "TILE_TYPE_2": [200, 193, 154],
-    "TILE_TYPE_3": [79, 73, 39],
-    "TILE_TYPE_4": [155, 155, 155],
-    "SPIKE_TYPE_1": [0, 204, 255],
-    "SPIKE_TYPE_2": [255, 102, 0],
-    "SPIKE_TYPE_3": [255, 0, 234],
-    "SPIKE_TYPE_4": [0, 255, 191],
-    "SPAWNPOINT": [251, 242, 54],
-    "DETONATOR": [109, 2, 2],
-    "TNT": [190, 70, 70],
-    "BREAKABLE_DOOR_1": [50, 60, 57],
-    "BREAKABLE_DOOR_2": [60, 50, 60],
-    "HAMMER": [118, 66, 138],  # collectibles
-    "FALLING_BLOCK": [143, 86, 59],
-    "LOOSE_BOARD": [102, 57, 49],
-    "FIRST_SPAWNPOINT": [255, 250, 141]
-}
-
 
 class LevelScanner:
     """
@@ -45,15 +21,21 @@ class LevelScanner:
         [138, 11, 48]: "ROPE",
         [23, 31, 16]: "TILE_TYPE_1",
         [200, 193, 154]: "TILE_TYPE_2",
+        "TILE_TYPE_3": [79, 73, 39],
+        "TILE_TYPE_4": [155, 155, 155],
         [0, 204, 255]: "SPIKE_TYPE_1",
         [255, 102, 0]: "SPIKE_TYPE_2",
+        "SPIKE_TYPE_3": [255, 0, 234],
+        "SPIKE_TYPE_4": [0, 255, 191],
         [251, 242, 54]: "SPAWNPOINT",
         [109, 2, 2]: "DETONATOR",
         [190, 70, 70]: "TNT",
-        [50, 60, 57]: "BREAKABLE_DOOR",
+        "BREAKABLE_DOOR_1": [50, 60, 57],
+        "BREAKABLE_DOOR_2": [60, 50, 60],
         [118, 66, 138]: "HAMMER",
         [143, 86, 59]: "FALLING_BLOCK",
-        [102, 57, 49]: "LOOSE_BOARD"
+        [102, 57, 49]: "LOOSE_BOARD",
+        "FIRST_SPAWNPOINT": [255, 250, 141]
     }
 
     def __init__(self, name):
