@@ -19,8 +19,8 @@ def decideDirection(previousX, currentX, previousDirection):
 
 # import the number of the sprite in the animation sheet, previous and current, as well as whether player is moving
 def decidePlayerSprite(twoFramesAgo, previousFrame, moving):
-    if twoFramesAgo == None: # Cases for nones
-        if previousFrame == None:
+    if twoFramesAgo is None:  # Cases for nones
+        if previousFrame is None:
             return standingFrame
         else:
             return standingFrame + 1
@@ -48,22 +48,30 @@ def isInAir(previousY, currentY):
 
     return previousY != currentY
 
+
 def decideSprite(previousX, currentX, previousY, currentY, twoSpritesAgo, previousSprite, previousDirection):
-    '''
+    """
+    :param twoSpritesAgo:
+    :param previousY:
+    :param currentX:
+    :param previousX:
     :param previousX, currentX, previousY, currentY: X and Y coordinates of previous frame and current frame
     :param twoSpritesAgo, previousSprite: number of sprite in sprite sheet used in last 2 frames
     :param previousDirection: last direction player was facing, True is right, False is left. None becomes True
 
-    return:
+    :return:
         - frame to render
         - direction player faces, true for right, false for left
-    '''
-    if previousX is not None:
-        moving = (previousX != currentX)
-    else:
-        moving = False
+    """
+    """
+    
+    Replace the return with a transformed sprite based on decideDirection
+    Also in the docstring make every param its own :param; don't group them or PyCharm gets mad
+    
+    """
+    moving = (previousX != currentX) if previousX is not None else False
     if isInAir(previousY, currentY):
         return jumpFrame, decideDirection(previousX, currentX, previousDirection)
     else:
-        return decidePlayerSprite(twoSpritesAgo, previousSprite, moving), decideDirection(previousX, currentX, previousDirection)
-
+        return decidePlayerSprite(twoSpritesAgo, previousSprite, moving), decideDirection(previousX, currentX,
+                                                                                          previousDirection)
