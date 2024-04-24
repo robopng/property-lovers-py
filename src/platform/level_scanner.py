@@ -22,7 +22,8 @@ COLORS = {
     "BREAKABLE_DOOR_2": [60, 50, 60],
     "HAMMER": [118, 66, 138],  # collectibles
     "FALLING_BLOCK": [143, 86, 59],
-    "LOOSE_BOARD": [102, 57, 49]
+    "LOOSE_BOARD": [102, 57, 49],
+    "FIRST_SPAWNPOINT": [255, 250, 141]
 }
 
 
