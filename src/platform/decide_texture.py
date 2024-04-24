@@ -37,6 +37,7 @@ import random
 """
 
 
+# ONLY for tiles and spikes.
 def decide_texture(tileUp, tileLeft, tileDown, tileRight, activeTile):
     orientation = 0
     tile = 0
@@ -70,3 +71,32 @@ def decide_texture(tileUp, tileLeft, tileDown, tileRight, activeTile):
         orientation = random.randint(1, 4)  # random orientation for solo tile
     return tile, orientation
 
+
+
+# A special texture is ANY texture that isn't a tile or a spike.
+def decide_special_texture(up, left, down, right):
+    '''
+    :param - send true if there's a WALL tile next to it. These are only the complete blocks
+    Many of these only have one point of contact to the ground, so the default (orient 1) is grounded.
+    1: ground, then counter-clockwise (2 is right wall, 3 ceiling, 4 left wall)
+        - can send Nones, are corrected to false
+
+    If there's a floor, orient to the floor.
+    If there's a wall, orient to the wall if there isn't another wall
+    If there's a ceiling with 0 or 2 walls, orient to the ceiling
+    '''
+    if left is None:
+        left = False
+    if down is None:
+        down = False
+    if right is None:
+        right = False
+    if up is None:
+        up = False
+    if not down:
+        if left and not right: orientation = 4
+        elif right and not left: orientation = 2
+        elif up: orientation = 3
+        else: orientation = 1
+    else: orientation = 4
+    return orientation
