@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Hey dude! Great seeing a babe like you in the sand… we should hang out.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "You wanna catch some waves with me? The tide is high and I brought my surfboard!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Oh, I don\u0027t know… I\u0027m not very good at surfing \n so I would probably need a good teacher to help me…": 1,
+      "If it\u0027s with a hunk like you then I\u0027ll hop \n right on that board! We could hold hands in the water.": 2,
+      "I don\u0027t like getting in the water.": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "I\u0027m totally down to help you hang and catch some waves! Sounds like a great afternoon.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Oh… well I\u0027d guess we\u0027d better head over soon then!",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "But you\u0027re at the beach! It\u0027s okay though, \n I\u0027m sure I can show you just how charming the ocean can be.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "By the way, what brings you to the beach? \n I don\u0027t see houses like you here often… I guess it\u0027s just my lucky day!",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I guess I\u0027m just looking for something new and different from normal. \n I\u0027m glad I ran into you since I seem to have found it.": 5,
+      "I came here to see you obviously! \n How could I miss the opportunity to see a house like you in the sun… \n it\u0027s almost blinding.": 6,
+      "I was bored I guess…? Needed some fresh air.": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Gnarly, dude! I haven\u0027t met someone like you before… \n it\u0027s like drinking water when it\u0027s 106 F!",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "I hope I can see you again. You\u0027re the kind of house you meet once and never forget.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Well dude… I\u0027m glad you like the view! I think the scenery is even better though.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "I hope I\u0027ll see you around! We should catch some waves sometime.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "You know what dude? Good for you, the air is real fresh out here.",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "It\u0027s tough you didn\u0027t seem to love the beach… \n I\u0027ll catch some waves with you next time.",
+    "from": "last",
+    "next": "end"
+  },
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Looks like it\u0027s my lucky day! I get to see a cute house on the beach again.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "I\u0027ve been thinking about you. Did you think about me?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Honestly, I have! I\u0027ve been wondering what you\u0027ve been up to. \n I still need some surfing lessons…": 1,
+      "Literally every second of the day! It\u0027s hard to find a hunky beach house \n like you anywhere. Every time I see a beach I think of you.": 2,
+      "Not particularly. It\u0027s good to see you but I\u0027ve been busy.": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Who, me? I\u0027ve been surfin\u0027, cruisin\u0027, and chillin\u0027! \n I missed giving you those pointers, you\u0027re a natural.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Dude, that\u0027s crazy! You gotta think about the waves too, \n they totally rock for surfing these days.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Man, I hope you get it done soon! That way we can keep hangin\u0027 out. \n I still gotta show you how fun the beach can be!",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "You know, with how much I\u0027ve been thinking about you, \n I think we really have a vibe dude. I want to know what you think about me.",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I think we have a vibe too. You\u0027re unlike any house \n I\u0027ve met and I think you\u0027re super cool.": 5,
+      "You\u0027re like totally the hottest house ever, duh! What else could there even be?": 6,
+      "You\u0027re cool, but I think we don\u0027t get along too well. \n We just have different interests.": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Wow. If I don\u0027t see you again I know I\u0027ll regret it.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "I really like you. I hope I can keep seeing you out here… \n to surf of course! You\u0027re seriously one of a kind.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "I\u0027m glad you think so dude! Not what I meant though…",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "I hope we keep getting to know each other! You\u0027re pretty radical, dude.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "I hope we get along better someday. \n I hope you come around to some of the things I like, \n and I\u0027ll learn about yours too.",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "I\u0027ll catch you later then. I hope you get to hang with the people you find chill.",
+    "from": "last",
+    "next": "end"
+  },
+]

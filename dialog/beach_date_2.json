@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Hey it\u0027s you again! I was just thinking about you.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "What do you say we hit the sand and play some volleyball? \n It\u0027s the perfect weather for it.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I\u0027d love to! You seem like you\u0027re good at it \n and I definitely need some pointers.": 1,
+      "Oh my gosh, yes! I\u0027d love to see how you use your muscles with the ball…": 2,
+      "I don\u0027t think I should, my floorboards will get sand in them.": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Radical! I\u0027ll be the best teacher you\u0027ve ever seen and leave your windows shaking.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "So that\u0027s a yes? Awesome dude, let\u0027s head to the net then!",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": You gotta learn to let loose sometimes! \n I guess it\u0027s my job to show you how gnarly the beach can be.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "There\u0027s nothing like the feeling of sand in your boards… \n don\u0027t you just wanna stay here forever?",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I do love it here, but I love being able to roam around different \n neighborhoods. There\u0027s so much to see in every corner.": 5,
+      "If it\u0027s with you, yes. I could stare at that dreamy door all day every day!": 6,
+      "I don\u0027t think I could, doesn\u0027t it get too much sometimes?": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "I never thought about it like that! \n Every time I see you I leave with something new…",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "It makes me totally amped up that we met today. I really hope you come around the sand again!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "That\u0027s sick! We would hang out every day then I guess?",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "It was a blast hangin\u0027 today. I\u0027ll catch you around!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": No, not really. Maybe because I grew up here. \n I\u0027m sure you\u0027ll come around to this gnarly place though.",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "It was nice seeing you around. Call me if you feel like hitting the waves.",
+    "from": "last",
+    "next": "end"
+  },
+]
