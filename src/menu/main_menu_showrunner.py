@@ -10,7 +10,7 @@ class MainMenuShowrunner:
         self.boxes = (
             # quit button
             MenuSprite(
-                renderer.screen.get_width() / 2 - 175,
+                (renderer.screen.get_width() - 300) / 2, # changed to center, check if it works since I can't run it
                 renderer.screen.get_height() / 2 + 50,
                 300,
                 100,
@@ -20,7 +20,7 @@ class MainMenuShowrunner:
             ),
             # begin button
             MenuSprite(
-                renderer.screen.get_width() / 2 - 175,
+                (renderer.screen.get_width() - 300) / 2, # changed to center, check if it works since I can't run it
                 renderer.screen.get_height() / 2 - 275,
                 300,
                 300,
