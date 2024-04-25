@@ -12,13 +12,27 @@ class SimShowrunner:
     a renderer clas passed in construction, also handles the logic for
     when to display its elements.
     """
+
+    DATES = [
+        "tutorial_date",
+        "castle_date",
+        "hh_date",
+    ]
+
     def __init__(self, renderer):
         # find a way to change this dynamically later
         # probably will come in from a save state file
-        self.date_code = 1
+        self.date = 1
+        self.date_code = 3
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png', 1920/2 - 320, 650-640, 640, 640)
+        self.npc_house = CharacterSprite(
+            f'../art/sim_sprites/{self.DATES[self.date]}.png',
+            1920 / 2 - 320,
+            650 - 640,
+            640,
+            640
+        )
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
@@ -34,17 +48,51 @@ class SimShowrunner:
         self.dialogueBox = MenuSprite(384, 650, 144 * 8, 48 * 8, dialogue_box)
         self.boxes = (
             # return to menu button
-            MenuSprite(384 - (36 * 8), 650 + (18*8), 35*8, 17*8, menu_path[0], consequence=-10),
+            MenuSprite(
+                384 - (36 * 8),
+                650 + (18 * 8),
+                35 * 8,
+                17 * 8,
+                menu_path[0],
+                consequence=-10
+            ),
             # begin
             # MenuSprite(500, 500, 100, 100, consequence=-101)
             # player dialog 1
-            TextSprite(328 + (12*8), 650 + (14 * 8), 48, 48, select_path[0], consequence=1),
+            TextSprite(
+                328 + (12 * 8),
+                650 + (14 * 8),
+                48,
+                48,
+                select_path[0],
+                consequence=1
+            ),
             # player dialog 2
-            TextSprite(328 + (12*8), 650 + (21 * 8), 48, 48, select_path[0], consequence=2),
+            TextSprite(
+                328 + (12 * 8),
+                650 + (21 * 8),
+                48,
+                48,
+                select_path[0],
+                consequence=2
+            ),
             # player dialog 3
-            TextSprite(328 + (12*8), 650 + (28 * 8), 48, 48, select_path[0], consequence=3),
+            TextSprite(
+                328 + (12 * 8),
+                650 + (28 * 8),
+                48,
+                48,
+                select_path[0],
+                consequence=3
+            ),
             # npc dialog
-            TextSprite(384 - (38*8), 650, 37 * 8, 17 * 8, next_path[0], consequence=-100),
+            TextSprite(
+                324 - (38 * 8),
+                650, 37 * 8,
+                17 * 8,
+                next_path[0],
+                consequence=-100
+            ),
         )
         self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])
@@ -65,10 +113,10 @@ class SimShowrunner:
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
         if not self.scroll.has_file():
-            self.scroll.load_file(self.date_code)
+            self.scroll.load_file(f'{self.DATES[self.date]}_{self.date_code}')
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
-        self.renderer.set_background(str(self.date_code) + "_BG")
+        self.renderer.set_background(self.DATES[self.date])
         self.renderer.display(self.sprites, text=True)
         while self.scroll.has_next():
             # await click on last dialog to proceed
@@ -113,6 +161,9 @@ class SimShowrunner:
         # write save state
         self.scroll.empty_file()
         self.date_code += 1
+        if self.date_code > 3:
+            self.date_code = 1
+            self.date += 1
         return "MAIN_MENU"
 
     def poll(self):

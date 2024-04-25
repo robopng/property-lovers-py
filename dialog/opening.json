@@ -45,7 +45,7 @@
     "next": "continue"
   },
   {
-    "text": Fine, fine. You can tag along. I guess I could use someone in my corner. \n But you gotta stay out of sight!",
+    "text": "Fine, fine. You can tag along. I guess I could use someone in my corner. \n But you gotta stay out of sight!",
     "from": "last",
     "next": "end"
   }

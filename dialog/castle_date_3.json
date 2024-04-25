@@ -50,18 +50,18 @@
   },
   {
     "options":
-    [
-      "Changing is as simple as making the effort to. It\u0027s never too late for that.": 5,
-      "You can\u0027t change if you keep making excuses - like age, for one.": 6,
-      "Probably. Just don\u0027t judge people if you can\u0027t understand them.": 7
-    ],
+    {
+      "Changing is as simple as making the effort to. It\u0027s never too late for that.": "1",
+      "You can\u0027t change if you keep making excuses - like age, for one.": "2",
+      "Probably. Just don\u0027t judge people if you can\u0027t understand them.": "3"
+    },
     "from": "last",
     "next": "jump",
     "jump": "player"
   },
   {
     "text": "I see… my age is nothing to be ashamed of. I may never be young again, yet there is nothing stopping me from continuing to learn and grow.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
     "text": "Hmm… that\u0027s an interesting perspective. Perhaps my difficulties with change are a result of fear, rather than age…",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -81,12 +81,12 @@
   },
   {
     "text": "………",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {
     "text": "I… need to go. Conversing with you was a mistake, no cap.",
     "from": "last",
     "next": "end"
-  },
+  }
 ]
