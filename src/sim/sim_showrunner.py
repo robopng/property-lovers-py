@@ -16,14 +16,15 @@ class SimShowrunner:
     DATES = [
         "tutorial_date",
         "castle_date",
-        "hh_date",
+        "hh_date"
+        "beach_date"
     ]
 
     def __init__(self, renderer):
         # find a way to change this dynamically later
         # probably will come in from a save state file
         self.date = 1
-        self.date_code = 3
+        self.date_code = 1
         self.current_date_success = 0
         # sprite and menu box initialization
         self.npc_house = CharacterSprite(
@@ -87,13 +88,31 @@ class SimShowrunner:
             ),
             # npc dialog
             TextSprite(
-                324 - (38 * 8),
+                384 - (38 * 8),
                 650, 37 * 8,
                 17 * 8,
                 next_path[0],
                 consequence=-100
             ),
         )
+        self.selector_boxes = pygame.sprite.Group()
+        sel_x = 600
+        sel_y = 200
+        sel_w = 100
+        for i in range(len(self.DATES)):
+            self.selector_boxes.add(
+                TextSprite(
+                    sel_x,
+                    sel_y,
+                    sel_w,
+                    sel_w,
+                    dialogue_box,
+                    content=i+1,
+                    consequence=i
+                )
+            )
+            sel_x += sel_w + 200
+
         self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])
         self.sprites.add(self.npc_house)
@@ -112,12 +131,15 @@ class SimShowrunner:
         # dialog files ALWAYS start from an NPC dialog line;
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
+        self.selector()
+
         if not self.scroll.has_file():
             self.scroll.load_file(f'{self.DATES[self.date]}_{self.date_code}')
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
         self.renderer.set_background(self.DATES[self.date])
         self.renderer.display(self.sprites, text=True)
+
         while self.scroll.has_next():
             # await click on last dialog to proceed
             while (result := self.poll()) is None: pass
@@ -165,6 +187,23 @@ class SimShowrunner:
             self.date_code = 1
             self.date += 1
         return "MAIN_MENU"
+
+    def selector(self):
+        self.renderer.display(self.selector_boxes, text=True)
+        while (result := self.selector_poll()) is None: pass
+        self.date = result[0]
+
+    def selector_poll(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT: exit()
+            if event.type == pygame.MOUSEBUTTONUP:
+                print('clicked')
+                r = [box.get_consequence()
+                     for box in self.selector_boxes
+                     if box.get_rect().collidepoint(pygame.mouse.get_pos())]
+                print(r)
+                return r if r != [] else None
+        return None
 
     def poll(self):
         for event in pygame.event.get():

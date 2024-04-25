@@ -45,7 +45,7 @@ class Renderer:
                             for text_surface, text_rect in sprite.render_wrapped((50, 5)):
                                 self.screen.blit(text_surface, text_rect)
                         else:
-                            for text_surface, text_rect in sprite.render_wrapped((500, 60)):
+                            for text_surface, text_rect in sprite.render_wrapped((440, 60)):
                                 self.screen.blit(text_surface, text_rect)
                     else:
                         self.screen.blit(sprite.get_content(), sprite.get_content_pos())

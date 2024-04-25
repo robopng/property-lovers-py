@@ -32,6 +32,7 @@ code = "MAIN_MENU"
 while (condition := code_table[code]) is not None:
     code_table["LAST"] = code
     code = condition.begin()
+    # except: code = "MAIN_MENU"
     # pass unconditionally. in the case we are in a local menu (e.g. hitting the menu button inside the sim),
     # use memory to return to where we opened the menu from
     if "MENU" in code:
