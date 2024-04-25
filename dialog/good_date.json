@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Woo hoo! That went great! Confidence really is key!",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Speaking of, you look more confident yourself. \n Maybe that confidence will help you, too!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Well, it\u0027s time for the next renovation, right? \n I\u0027ll wait here again.",
+    "from": "last",
+    "next": "end"
+  }
+]

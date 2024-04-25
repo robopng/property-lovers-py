@@ -1,0 +1,22 @@
+[
+  {
+    "text": "…Hmm? Oh! D-did you say something?",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Sorry, I\u0027m kinda still lost in my thoughts. \n I feel like I just made a lifelong friend… another one, anyways.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Seriously though, thank you for everything. \n It means so much to me to have such good people in my life.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Well, back on topic, it\u0027s renovation time, right? \n I can\u0027t imagine feeling much better than this, \n but I\u0027m curious what you\u0027ll come up with. Good luck!",
+    "from": "last",
+    "next": "end"
+  }
+]

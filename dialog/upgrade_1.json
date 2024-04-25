@@ -1,0 +1,57 @@
+[
+  {
+    "text": "You\u0027re back! So, do you have what you need?",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Not enough to do the whole renovation, huh? \n That\u0027s okay. I figured it would take some time.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "In that case, let\u0027s just do it bit by bit! \n It\u0027ll probably be better for me to gain some confidence \n over time rather than all at once, anyways.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Well, whenever you\u0027re ready!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "…",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Oh, wow! I can already feel the difference!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "I feel stronger now! A bit more confident, too.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "You really are good at this! \n Why\u0027s a homebuilder of your level working for free?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "You just got your license? Could\u0027ve fooled me!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Still, I guess it makes sense. \n Fixing me up is a good way to get your name out there.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Thanks, though. Even if you get something out of it too, \n I\u0027m really grateful you\u0027re helping me like this.",
+    "from": "last",
+    "next": "end"
+  }
+]

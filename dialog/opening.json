@@ -1,0 +1,52 @@
+[
+  {
+    "text": "Umm… N-no, that\u0027s not it. Should I be more assertive? Uh…",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "…! Y-you didn\u0027t hear anything!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "I-I said you didn\u0027t hear anything!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "…Okay, fine, I\u0027m a talking house. Satisfied?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "What was I talking about? Well, it\u0027s a bit embarrassing…",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "I, uh, have a date for later today. \n And yes, before you ask, there are other talking houses, \n and they go on dates sometimes.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "But I\u0027m just so nervous! You humans have dates too, yeah? \n Any advice you can give me?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "What!? No! I\u0027m not bringing a human to my date! \n I\u0027m already breaking a taboo just telling you about all this!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "…You really think you can help me if I let you come with?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": Fine, fine. You can tag along. I guess I could use someone in my corner. \n But you gotta stay out of sight!",
+    "from": "last",
+    "next": "end"
+  }
+]
