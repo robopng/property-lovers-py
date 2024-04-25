@@ -11,6 +11,7 @@ class SimShowrunner:
     a renderer clas passed in construction, also handles the logic for
     when to display its elements.
     """
+
     def __init__(self, renderer):
         # find a way to change this dynamically later
         # probably will come in from a save state file
@@ -18,27 +19,58 @@ class SimShowrunner:
         self.current_date_success = 0
         # sprite and menu box initialization
         self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png')
+        self.npc_house.image = pygame.transform.scale(self.npc_house.image, (725, 725))
+        self.npc_house.rect.center = (675, -85)
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
         # too tired to think of a better method for this right now
-        self.NPC_DIALOG = 4
-        self.PLAYER_DIALOG = 1
-        self.STATICS = 0
-        menu_box_path = '../art/sim_sprites/dialogue_box.png'
+        self.NPC_DIALOG = 5
+        self.PLAYER_DIALOG = 2
+        self.STATICS = 1
+        menu_box_path = '../art/sim_sprites/'
         self.boxes = (
             # return to menu button
-            MenuSprite(200, 200, 100, 100, menu_box_path, content="Menu", consequence=-10),
-            # begin
-            # MenuSprite(500, 500, 100, 100, consequence=-101)
+            MenuSprite(
+                50,
+                50,
+                100,
+                100,
+                f'{menu_box_path}back_button.png',
+                content="Menu",
+                consequence=-10
+            ),
+            # player dialog holder
+            MenuSprite(
+                200,
+                550,
+                1500,
+                500,
+                f'{menu_box_path}dialogue_box.png',
+                consequence=-101
+            ),
             # player dialog 1
-            MenuSprite(0, 0, 100, 100, menu_box_path, consequence=1),
+            MenuSprite(
+                0,
+                0,
+                100,
+                100,
+                f'{menu_box_path}dialogue_box.png',
+                consequence=1
+            ),
             # player dialog 2
-            MenuSprite(150, 0, 100, 100, menu_box_path, consequence=2),
+            MenuSprite(150, 0, 100, 100, f'{menu_box_path}dialogue_box.png', consequence=2),
             # player dialog 3
-            MenuSprite(300, 0, 100, 100, menu_box_path, consequence=3),
+            MenuSprite(300, 0, 100, 100, f'{menu_box_path}dialogue_box.png', consequence=3),
             # npc dialog
-            MenuSprite(200, 500, 100, 100, menu_box_path, consequence=-100),
+            MenuSprite(
+                675,
+                650,
+                500,
+                200,
+                f'{menu_box_path}dialogue_box.png',
+                consequence=-100
+            ),
         )
         self.sprites.add(self.boxes[self.STATICS])
         self.sprites.add(self.npc_house)

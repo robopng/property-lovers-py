@@ -18,7 +18,8 @@
       "Option 3": "3"
     },
     "from": "last",
-    "next": "jump"
+    "next": "jump",
+    "jump": "player"
   },
   {
     "text": "Picked option 1!",

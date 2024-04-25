@@ -8,10 +8,26 @@ class MainMenuShowrunner:
         self.renderer = renderer
         menu_box_path = '../art/sim_sprites/dialogue_box.png'
         self.boxes = (
-            # quit
-            MenuSprite(200, 200, 100, 100, menu_box_path, content="Quit to Desktop", consequence=-1),
-            # begin
-            MenuSprite(0, 0, 100, 100, menu_box_path, content="Play", consequence=1),
+            # quit button
+            MenuSprite(
+                renderer.screen.get_width() / 2 - 175,
+                renderer.screen.get_height() / 2 + 50,
+                300,
+                100,
+                menu_box_path,
+                content="Quit to Desktop",
+                consequence=-1
+            ),
+            # begin button
+            MenuSprite(
+                renderer.screen.get_width() / 2 - 175,
+                renderer.screen.get_height() / 2 - 275,
+                300,
+                300,
+                menu_box_path,
+                content="Play",
+                consequence=1
+            ),
             # MenuSprite(150, 0, 100, 100),
             # MenuSprite(300, 0, 100, 100),
             # MenuSprite(200, 500, 100, 100),
@@ -19,15 +35,18 @@ class MainMenuShowrunner:
         self.sprites = pygame.sprite.Group(self.boxes)
 
     def begin(self):
-        self.renderer.set_background('BeachBG')
+        self.renderer.set_background('NeighborhoodBG')
         self.renderer.set_targets(pygame.sprite.Group(self.boxes))
         while True:
             results = self.poll()
             if results is not None and results != []:
                 result = results[0]
-                if result == -1: exit()
-                elif result == 0: return "NONE"
-                elif result == 1: return "SIM"
+                if result == -1:
+                    exit()
+                elif result == 0:
+                    return "NONE"
+                elif result == 1:
+                    return "SIM"
             self.renderer.display(text=True)
 
     def poll(self):

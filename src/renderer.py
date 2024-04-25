@@ -6,7 +6,7 @@ class Renderer:
         self.screen = screen
         self.clock = clock
         self.fps = fps
-        self.background = pygame.image.load(f'../art/backgrounds/{background}.png').convert()
+        self.background = pygame.transform.scale(pygame.image.load(f'../art/backgrounds/{background}.png').convert(), (1920,1080))
         self.background_rect = self.background.get_rect()
         self.targets = targets
 
@@ -52,7 +52,7 @@ class Renderer:
         self.targets = targets
 
     def set_background(self, background):
-        self.background = pygame.image.load(f'../art/backgrounds/{background}.png').convert()
+        self.background = pygame.transform.scale(pygame.image.load(f'../art/backgrounds/{background}.png').convert(), (1920,1080))
         self.background_rect = self.background.get_rect()
 
     def set_fps(self, fps):

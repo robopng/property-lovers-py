@@ -25,7 +25,7 @@ code_table = {
     "NONE": None,
     "LAST": None  # memory code
 }
-code = "PLAT"
+code = "SIM"
 
 # yield complete control to respective showrunner
 # when showrunner needs to stop, it will return code of the next showrunner in line
