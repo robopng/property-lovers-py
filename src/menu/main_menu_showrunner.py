@@ -25,7 +25,7 @@ class MainMenuShowrunner:
                 300,
                 300,
                 menu_box_path,
-                content="Play",
+                content="PLAY",
                 consequence=1
             ),
             # MenuSprite(150, 0, 100, 100),
@@ -35,7 +35,7 @@ class MainMenuShowrunner:
         self.sprites = pygame.sprite.Group(self.boxes)
 
     def begin(self):
-        self.renderer.set_background('NeighborhoodBG')
+        self.renderer.set_background('platformingbg1')
         self.renderer.set_targets(pygame.sprite.Group(self.boxes))
         while True:
             results = self.poll()
