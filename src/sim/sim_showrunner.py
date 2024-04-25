@@ -17,7 +17,7 @@ class SimShowrunner:
         self.date_code = 0
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(f'../art/sim_sprites/{self.date_code}.png')
+        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png')
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
@@ -57,10 +57,10 @@ class SimShowrunner:
         # dialog files ALWAYS start from an NPC dialog line;
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
-        if not self.scroll.has_file(): self.scroll.load_file(1)
+        if not self.scroll.has_file(): self.scroll.load_file(self.date_code)
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
-        self.renderer.set_background(self.date_code)
+        self.renderer.set_background(f'{self.date_code}_BG')
         self.renderer.display(self.sprites, text=True)
         while self.scroll.has_next():
             # await click on last dialog to proceed
@@ -104,7 +104,7 @@ class SimShowrunner:
         if result[0] == -10: return "MENU"
         # write save state
         self.scroll.empty_file()
-        # self.date_code += 1
+        self.date_code += 1
         return "PLAT"
 
     def poll(self):

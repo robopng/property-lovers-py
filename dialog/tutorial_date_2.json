@@ -39,8 +39,13 @@
     "jump": "npc"
   },
   {
-    "text": "Alright, I’m good now. I work at a drywall mart, and the new guy didn’t show up. The manager made me cover his shift. I know this is kinda coming out of nowhere, but… do you ever get the feeling that your life isn’t going how you planned it?",
+    "text": "Alright, I’m good now. I work at a drywall mart, and the new guy didn’t show up. The manager made me cover his shift.",
     "from": "jump",
+    "next": "continue"
+  },
+  {
+    "text": "I know this is kinda coming out of nowhere, but… do you ever get the feeling that your life isn’t going how you planned it?",
+    "from": "last",
     "next": "continue"
   },
   {
@@ -83,5 +88,5 @@
     "text": "Well, I’m glad I didn’t get here on time. Would’ve sucked spending more time with you today. Ciao.",
     "from": "last",
     "next": "end"
-  },
+  }
 ]
