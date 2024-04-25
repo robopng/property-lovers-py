@@ -11,7 +11,7 @@ class MenuSprite(src.static_sprite.StaticSprite):
     def __init__(self, x, y, width, height, path, consequence=0, content='', visible=True, image='default'):
         super().__init__(path)
         self.font = pygame.font.SysFont('Comic Sans MS', 30)
-        self.text_color = (0, 0, 0)
+        self.text_color = (255, 255, 255)
         self.text_antialias = True
         # temporary
         self.transform_image((width, height))
@@ -34,4 +34,4 @@ class MenuSprite(src.static_sprite.StaticSprite):
         return self.consequence
 
     def set_content(self, content):
-        self.content = self.font.render(content, False, (0, 0, 0))
+        self.content = self.font.render(content, self.text_antialias, self.text_color)

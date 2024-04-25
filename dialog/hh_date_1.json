@@ -40,7 +40,7 @@
   },
   {
     "text": "That being said, I think you\u0027ve got the makings of a \nhaunted house yourself. I\u0027d be happy to walk you through \nthe process, if you\u0027re at all curious...",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {

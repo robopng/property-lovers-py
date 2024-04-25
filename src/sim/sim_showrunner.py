@@ -187,6 +187,8 @@ class SimShowrunner:
         if self.date_code > 3:
             self.date_code = 1
             self.date += 1
+            if self.date >= len(self.DATES): self.date = 0
+            self.sprites.remove(self.npc_house)
             self.npc_house = CharacterSprite(
                 f'../art/sim_sprites/{self.DATES[self.date]}.png',
                 1920 / 2 - 320,
@@ -195,7 +197,7 @@ class SimShowrunner:
                 640
             )
             self.sprites.add(self.npc_house)
-            if self.date >= len(self.DATES): self.date = 0
+            # self.sprites.add(self.npc_house)
         self.scroll.load_file(f'{self.DATES[self.date]}_{self.date_code}')
         return "MAIN_MENU"
 
