@@ -1,11 +1,13 @@
 [
   {
-    "text": "H-hey! Sorry I’m… *pant*… l-late! O-over…time…",
+    "text": "H-hey! Sorry I\u0027m... *pant*... l-late! O-over...time...",
     "from": "start",
     "next": "continue"
   },
   {
-    "text": "Just lemme… lemme catch my breath…",
+    "text": "Just lemme... lemme catch my breath...",
+
+
     "from": "last",
     "next": "continue"
   },
@@ -14,37 +16,40 @@
     {
       "No worries, take your time.": 1,
       "Is it at least paid overtime?": 2,
-      "Couldn’t you have just gotten a ride?": 3
+      "Couldn\u0027t you have just gotten a ride?": 3
     },
     "from": "last",
     "next": "jump",
     "jump": "player"
   },
   {
-    "text": "Phew… Glad there’s *someone* who gives me a break…",
+    "text": "Phew... Glad there\u0027s *someone* who gives me a break...",
+
+
     "from": "1",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "In this housing economy!? I… I wish.",
+    "text": "In this housing economy!? I... I wish.",
+
     "from": "2",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "I- you- but- shut up! I-I’m not dumb!",
+    "text": "I- you- but- shut up! I-I\u0027m not dumb!",
     "from": "3",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "Alright, I’m good now. I work at a drywall mart, and the new guy didn’t show up. The manager made me cover his shift.",
+    "text": "Alright, I\u0027m good now. I work at a dry-wallmart, \nand the new guy didn\u0027t show up. The manager made me cover his shift.",
     "from": "last",
     "next": "continue"
   },
   {
-    "text": "I know this is kinda coming out of nowhere, but… do you ever get the feeling that your life isn’t going how you planned it?",
+    "text": "I know this is kinda coming out of nowhere, but... do you ever \nget the feeling that your life isn\u0027t going how you planned it?",
     "from": "last",
     "next": "continue"
   },
@@ -52,25 +57,25 @@
     "options":
     {
       "Sometimes, yeah. Just remember: If it was easy, everyone would be doing it.": 1,
-      "All the time! Sometimes it takes everything I’ve got just to make it through the day.": 2,
-      "You probably just didn’t try hard enough.": 3
+      "You probably just didn\u0027t try hard enough.": 3,
+      "All the time! Sometimes it takes everything \nI\u0027ve got just to make it through the day.": 2
     },
     "from": "last",
     "next": "jump",
     "jump": "player"
   },
   {
-    "text": "If it were easy, huh…? I never thought of it that way.",
+    "text": "If it were easy, huh...? I never thought of it that way.",
     "from": "1",
     "next": "continue"
   },
   {
-    "text": "Wow, that went by fast! Probably in part cause I was late, but I had a lot of fun, too! Let’s do this again some time!",
+    "text": "Wow, that went by fast! Probably in part cause I was late, \nbut I had a lot of fun, too! Let\u0027s do this again some time!",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "Right!? Sometimes it even feels like breathing is gonna get me yelled at.",
+    "text": "Right!? Sometimes it even feels like breathing is gonna \nget me yelled at.",
     "from": "2",
     "next": "continue"
   },
@@ -80,12 +85,12 @@
     "next": "end"
   },
   {
-    "text": "What’s your damage!? If you’re trying to be encouraging, that’s not how you do it!",
+    "text": "What\u0027s your damage!? If you\u0027re trying \nto be encouraging, that\u0027s not how you do it!",
     "from": "3",
     "next": "continue"
   },
   {
-    "text": "Well, I’m glad I didn’t get here on time. Would’ve sucked spending more time with you today. Ciao.",
+    "text": "Well, I\u0027m glad I didn\u0027t get here on time. \nWould\u0027ve sucked spending more time with you today. Ciao.",
     "from": "last",
     "next": "end"
   }

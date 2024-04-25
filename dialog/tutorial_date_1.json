@@ -1,49 +1,51 @@
 [
   {
-    "text": "Hey! I think we’re from the same neighborhood and I’ve noticed you around. Wow… you look really good today!",
+    "text": "Hey! I think we\u0027re from the same neighborhood and I\u0027ve \nnoticed you around. Wow... you look really good today!",
     "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "Thanks…": 1,
+      "Thanks...": 1,
       "You look today too..?": 2,
-      "What’s it to you??": 3
+      "What\u0027s it to you??": 3
     },
     "from": "last",
     "next": "jump",
     "jump": "player"
   },
   {
-    "text": "You’re welcome!",
+    "text": "You\u0027re welcome!",
     "from": "1",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "Haha! You’re funny.",
+    "text": "Haha! You\u0027re funny.",
     "from": "2",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "Ah! Uh, my bad! But there's no need to be aggressive…",
+    "text": "Ah! Uh, my bad! But there's no need to be aggressive...",
+
     "from": "3",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "You know, I really like your vibe. You seem really interesting… would you like to go out sometime?",
+    "text": "You know, I really like your vibe. You seem really \ninteresting... would you like to go out sometime?",
+
     "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "I think you’re pretty cool too! I’d love to.": 1,
-      "Maybe..? I’ll have to check my schedule.": 2,
-      "Uh, I- M-maybe? I mean, uh, I ummm…": 3
+      "I think you\u0027re pretty cool too! I\u0027d love to.": 1,
+      "Maybe..? I\u0027ll have to check my schedule.": 2,
+      "Uh, I- M-maybe? I mean, uh, I ummm...": 3
     },
     "from": "last",
     "next": "jump",
@@ -60,7 +62,8 @@
     "next": "end"
   },
   {
-    "text": "Uh… no pressure. You don't have to answer right away. See ya later!",
+    "text": "Uh... no pressure. You don't have to answer right away. See ya later!",
+
     "from": "3",
     "next": "end"
   }

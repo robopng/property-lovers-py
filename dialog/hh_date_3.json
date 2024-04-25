@@ -46,9 +46,9 @@
   {
     "options":
     {
-      "Makes sense to me. Life\u0027s always gonna laugh, so you either \nget laughed at or laughed with.": 1,
       "I never thought of it like that. I like it, though.": 2,
-      "That\u0027s a really weird way of looking at things.": 3
+      "That\u0027s a really weird way of looking at things.": 3,
+      "Makes sense to me. Life\u0027s always gonna laugh, so you either \nget laughed at or laughed with.": 1
     },
     "from": "last",
     "next": "jump",

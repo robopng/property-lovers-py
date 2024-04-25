@@ -12,8 +12,8 @@
   {
     "options":
     {
-      "That’s cool! It must’ve been hard.": 1,
-      "How’d it go?": 2,
+      "That\u0027s cool! It must\u0027ve been hard.": 1,
+      "How\u0027d it go?": 2,
       "Hmmm.": 3
     },
     "from": "last",
@@ -27,27 +27,27 @@
     "jump": "npc"
   },
   {
-    "text": "It was mostly just tiring to be honest, but I learned a lot too.",
+    "text": "It was mostly just tiring to be honest, \nbut I learned a lot too.",
     "from": "2",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "…You don’t sound too interested. Still, it’s thanks to you I even tried.",
+    "text": "...You don\u0027t sound too interested. \nStill, it\u0027s thanks to you I even tried.",
     "from": "3",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "And guess what? I got the job! So… I just wanted to say thanks. For motivating me to put my all into it.",
+    "text": "And guess what? I got the job! So... I just wanted \nto say thanks. For motivating me to put my all into it.",
     "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "You’re welcome! I’m just glad I could help.": 1,
-      "If you ask me, the accomplishment’s all yours.": 2,
+      "You\u0027re welcome! I\u0027m just glad I could help.": 1,
+      "If you ask me, the accomplishment\u0027s all yours.": 2,
       "Where would you be without me?": 3
     },
     "from": "last",
@@ -55,32 +55,32 @@
     "jump": "player"
   },
   {
-    "text": "And you really did help. This might be dramatic of me, but I really am glad we met.",
+    "text": "And you really did help. This might be dramatic of me, \nbut I really am glad we met.",
     "from": "1",
     "next": "continue"
   },
   {
-    "text": "I really do feel stronger when we talk… I hope it’s not just me. Let’s push each other to be our very best!",
+    "text": "I really do feel stronger when we talk... I hope it\u0027s \nnot just me. Let\u0027s push each other to be our very best!",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "That’s sweet of you to say! Still, I couldn’t have done it without you.",
+    "text": "That\u0027s sweet of you to say! Still, I couldn\u0027t have done it without you.",
     "from": "2",
     "next": "continue"
   },
   {
-    "text": "You’re a good friend. If you ever need of some help, let me know. I’m happy to support you!”",
+    "text": "You\u0027re a good friend. If you ever need of some help, \nlet me know. I\u0027m happy to support you!”",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "Probably not in a new job. Still, can’t say I like the way you said that…",
+    "text": "Probably not in a new job. Still, \ncan\u0027t say I like the way you said that...",
     "from": "3",
     "next": "continue"
   },
   {
-    "text": "Well, I wanted to thank you, and now I have. I’ll get out of your hair now.",
+    "text": "Well, I wanted to thank you, and now I have. \nI\u0027ll get out of your hair now.",
     "from": "last",
     "next": "end"
   }
