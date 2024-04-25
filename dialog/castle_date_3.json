@@ -33,25 +33,25 @@
     "jump": "npc"
   },
   {
-    "text": "…Disregarding that…",
+    "text": "...Disregarding that...",
     "from": "3",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "As you know, I have been attempting to figuratively renovate myself to fit with our modern age.",
+    "text": "As you know, I have been attempting to figuratively \nrenovate myself to fit with our modern age.",
     "from": "jump",
     "next": "continue"
   },
   {
-    "text": "Yet recently, I feel that I am not getting anywhere. Is it truly too late to change…?",
+    "text": "Yet recently, I feel that I am not getting anywhere. \nIs it truly too late to change...?",
     "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "Changing is as simple as making the effort to. It\u0027s never too late for that.": "1",
+      "Changing is as simple as making the effort to. It\u0027s never too late.": "1",
       "You can\u0027t change if you keep making excuses - like age, for one.": "2",
       "Probably. Just don\u0027t judge people if you can\u0027t understand them.": "3"
     },
@@ -60,32 +60,32 @@
     "jump": "player"
   },
   {
-    "text": "I see… my age is nothing to be ashamed of. I may never be young again, yet there is nothing stopping me from continuing to learn and grow.",
+    "text": "I see... my age is nothing to be ashamed of. I may never be \nyoung again, yet there is nothing stopping me from continuing \nto learn and grow.",
     "from": "1",
     "next": "continue"
   },
   {
-    "text": "The time we\u0027ve spent together has been lovely - I couldn\u0027t imagine a better friend to share my journey with. But, regardless, the date has just begun!",
+    "text": "The time we\u0027ve spent together has been \nlovely - I couldn\u0027t imagine a better friend to share \nmy journey with. But, regardless, the date has just begun!",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "Hmm… that\u0027s an interesting perspective. Perhaps my difficulties with change are a result of fear, rather than age…",
+    "text": "Hmm... that\u0027s an interesting perspective. Perhaps my difficulties \nwith change are a result of fear, rather than age...",
     "from": "2",
     "next": "continue"
   },
   {
-    "text": "This revelation could not have come to pass were it not for your counsel. Sincerely, I thank you.",
+    "text": "This revelation could not have come to pass \nwere it not for your counsel. Sincerely, I thank you.",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "………",
+    "text": "... ... ...",
     "from": "3",
     "next": "continue"
   },
   {
-    "text": "I… need to go. Conversing with you was a mistake, no cap.",
+    "text": "I... need to go. Conversing with you was a mistake, no cap.",
     "from": "last",
     "next": "end"
   }
