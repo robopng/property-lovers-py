@@ -12,7 +12,7 @@
   {
     "options":
     {
-      "Glad to be talking to someone with some history to them, that’s for sure!": "1",
+      "Glad to be talking to someone with some history to them, that\u0027s for sure!": "1",
       "S-spectacular, thanks! I love your, uh, drawbridge!": "2",
       "But of course! I must inquire as to the quality of thine.": "3"
     },
@@ -39,15 +39,15 @@
     "jump": "npc"
   },
   {
-    "text": "Well, regardless, there’s no point in going to restaurant without eating. Have you any insights on which entrees don’t miss?",
+    "text": "Well, regardless, there\u0027s no point in going to restaurant without eating. Have you any insights on which entrees don\u0027t miss?",
     "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "Can’t go wrong with cabbage soup.": "1",
-      "Cinnamon rolls! There’s a second stomach for sweets ya know.": "2",
+      "Can\u0027t go wrong with cabbage soup.": "1",
+      "Cinnamon rolls! There\u0027s a second stomach for sweets ya know.": "2",
       "The classic: A plate full of venison!": "3"
     },
     "from": "last",
@@ -55,7 +55,7 @@
     "jump": "player"
   },
   {
-    "text": "Oh ho, a homestead of exceeding taste! ’Tis always hype to meet a fellow cabbage soup enjoyer.",
+    "text": "Oh ho, a homestead of exceeding taste! \u0027Tis always hype to meet a fellow cabbage soup enjoyer.",
     "from": "1",
     "next": "continue"
   },
@@ -80,7 +80,7 @@
     "next": "continue"
   },
   {
-    "text": "Thank you for the meal. If there’s nothing else, I shall be on my way. Have a good one.",
+    "text": "Thank you for the meal. If there\u0027s nothing else, I shall be on my way. Have a good one.",
     "from": "last",
     "next": "end"
   }

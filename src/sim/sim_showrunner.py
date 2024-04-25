@@ -17,7 +17,7 @@ class SimShowrunner:
         self.date_code = 0
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(f'../art/sim_sprites/{self.date_code}.png')
+        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png')
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
@@ -25,21 +25,27 @@ class SimShowrunner:
         self.NPC_DIALOG = 4
         self.PLAYER_DIALOG = 1
         self.STATICS = 0
-        menu_box_path = '../art/sim_sprites/dialogue_box.png'
+        dialogue_box = '../art/sim_sprites/dialogue_box.png'
+        select_path = ['../art/sim_sprites/select.png', '../art/sim_sprites/select_selected.png']
+        menu_path = ['../art/sim_sprites/menu.png', '../art/sim_sprites/menu_selected.png']
+        back_path = ['../art/sim_sprites/back.png', '../art/sim_sprites/back_selected.png']
+        next_path = ['../art/sim_sprites/next.png', '../art/sim_sprites/next_selected.png']
+        self.dialogueBox = MenuSprite(384, 650, 144 * 8, 48 * 8, dialogue_box)
         self.boxes = (
             # return to menu button
-            MenuSprite(200, 200, 100, 100, menu_box_path, content="Menu", consequence=-10),
+            MenuSprite(384 - (36 * 8), 650 + (18*8), 35*8, 17*8, menu_path[0], consequence=-10),
             # begin
             # MenuSprite(500, 500, 100, 100, consequence=-101)
             # player dialog 1
-            MenuSprite(0, 0, 100, 100, menu_box_path, consequence=1),
+            MenuSprite(384 + (12*8), 650 + (14*8), 48, 48, select_path[0], consequence=1),
             # player dialog 2
-            MenuSprite(150, 0, 100, 100, menu_box_path, consequence=2),
+            MenuSprite(384 + (12*8), 650 + (21 * 8), 48, 48, select_path[0], consequence=2),
             # player dialog 3
-            MenuSprite(300, 0, 100, 100, menu_box_path, consequence=3),
+            MenuSprite(384 + (12*8), 650 + (28 * 8), 48, 48, select_path[0], consequence=3),
             # npc dialog
-            MenuSprite(200, 500, 100, 100, menu_box_path, consequence=-100),
+            MenuSprite(384 - (38*8), 650 , 37*8, 17*8, next_path[0], consequence=-100),
         )
+        self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])
         self.sprites.add(self.npc_house)
         self.renderer = renderer
@@ -60,7 +66,7 @@ class SimShowrunner:
         if not self.scroll.has_file(): self.scroll.load_file(1)
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
-        self.renderer.set_background(self.date_code)
+        self.renderer.set_background(str(self.date_code) + "_BG")
         self.renderer.display(self.sprites, text=True)
         while self.scroll.has_next():
             # await click on last dialog to proceed
