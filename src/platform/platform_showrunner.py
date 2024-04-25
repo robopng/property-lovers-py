@@ -29,6 +29,10 @@ class PlatformShowrunner:
             if self.player in collisions:
                 for collision in collisions[self.player]:
                     if collision.get_name() != "BLACK": self.player.collide(collision.get_rect())
+            if (direction := self.player.check_bounds(self.renderer.screen)) is not None:
+                self.level.move_block(direction)
+                self.level.set_block_texture_array()
+                self.level_tile_group = self.level.get_block_group()
             # check collision
             #  if player is colliding with another sprite, process consequence
             #  if player is colliding with the floor, keep on floor
