@@ -1,0 +1,42 @@
+[
+  {
+    "text": "Well… that could\u0027ve gone better.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "You were pretty helpful back there, but I just can\u0027t get my nerves under control!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Oh? Well, if you have an idea, I\u0027m all ears.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "A renovation? Don\u0027t you humans usually charge for that? \n Houses don\u0027t usually have much disposable income…",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Wait, what!? You\u0027ll do it free of charge!?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Yes! Yes, please, I\u0027d love that!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "I don\u0027t understand why you\u0027d go so far for a house \n you just met, but… thanks.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "So, you need to go get materials? I\u0027ll wait here then.",
+    "from": "last",
+    "next": "end"
+  }
+]

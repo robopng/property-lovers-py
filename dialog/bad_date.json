@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Yeesh… I really screwed that one up, huh?",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Guess I\u0027m not the only one who feels demoralized. \n It\u0027s okay if we don\u0027t make as much progress today. \n Let\u0027s lick our wounds and bounce back next time!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Well, you know the drill. Good luck out there!",
+    "from": "last",
+    "next": "end"
+  }
+]

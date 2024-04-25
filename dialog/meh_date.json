@@ -1,0 +1,17 @@
+[
+  {
+    "text": "That went pretty okay, all things considered! \n I could definitely still use a confidence \n boost, though.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "You too, eh? Guess most people do, every now and again.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "text": "Anyways, I can\u0027t wait to see what you have in store for me today! \n Best of luck!",
+    "from": "last",
+    "next": "end"
+  }
+]
