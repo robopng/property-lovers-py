@@ -75,6 +75,7 @@ class LevelScanner:
         # ones at the end may come out as slightly larger or smaller depending on issues with filesize
         self.blocks = blocks
         self.current_block = None
+        self.sheet = TileSheet("master_sprite_sheet")
 
     def set_player_block(self):
         """
@@ -87,7 +88,7 @@ class LevelScanner:
                 for row in self.blocks[i][j]:
                     for pixel in row:
                         if self.COLORS["FIRST_SPAWNPOINT"] == pixel.tolist():
-                            self.current_block = (i, j)
+                            self.current_block = self.blocks[i][j]
                             return
 
     def set_block_texture_array(self):
@@ -96,7 +97,7 @@ class LevelScanner:
         Tile textures are represented by colors, but tile types and orientations by integer values.
         :return: a copy of the current block including tile types and orientations per pixel
         """
-        block = self.blocks[self.current_block[0]][self.current_block[1]]
+        block = self.current_block
         tiled_block = numpy.empty((self.SEGMENT_HEIGHT, self.SEGMENT_WIDTH), dtype=Tile)
         used_tiles = []
         # not entirely sure about the mutability here but really don't want to risk it
@@ -117,12 +118,11 @@ class LevelScanner:
                     if all(color == block[i][j]):
                         tile_name = list(self.COLORS.keys())[list(self.COLORS.values()).index(color)]
 
-                sheet = TileSheet("master_sprite_sheet")
-                tile = Tile(sheet.get_tile(
-                    sheet.get_tile_code(tile_name),
+                tile = Tile(self.sheet.get_tile(
+                    self.sheet.get_tile_code(tile_name),
                     tile_type,
-                    orientation
-                ))
+                    orientation,
+                ), tile_name, self.sheet.get_tile_size())
 
                 # not reusing any of the images
                 for t in used_tiles:
@@ -131,17 +131,23 @@ class LevelScanner:
                         break
 
                 tiled_block[i][j] = tile
-                tile.set_xy(j*16, i*16)
+                tile.set_xy(j, i)
 
-        self.blocks[self.current_block[0]][self.current_block[1]] = tiled_block
+        self.current_block = tiled_block
 
     def get_block_group(self):
         group = pygame.sprite.Group()
-        block = self.blocks[self.current_block[0]][self.current_block[1]]
+        block = self.current_block
         for row in block:
             for tile in row:
                 group.add(tile)
         return group
+
+    def get_player_pos(self):
+        for i in range(len(self.current_block)):
+            for j in range(len(self.current_block[i])):
+                if "SPAWNPOINT" in self.current_block[i][j].get_name():
+                    return j * self.sheet.get_tile_size(), i * self.sheet.get_tile_size(),
 
     def move_block(self, direction):
         """
@@ -150,11 +156,12 @@ class LevelScanner:
         :param direction: the direction to move; either "up", "left", "down", or "right
         """
         # just looks better than a bunch of if statements
-        i, j = self.current_block
+        i, j = np.argwhere(self.blocks == self.current_block)[0]
         dirs = {
             "up": (i - 1, j),
             "down": (i + 1, j),
             "left": (i, j - 1),
             "right": (i, j + 1)
         }
-        self.current_block = dirs[direction]
+        i, j = dirs[direction]
+        self.current_block = self.blocks[i][j]

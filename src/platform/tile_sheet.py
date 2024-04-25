@@ -118,17 +118,18 @@ class TileSheet:
         "SPIKE_TYPE_3": 5,
         "SPIKE_TYPE_4": 7,
         # special textures
-        "ROPE": 0,
-        "DETONATOR": 0,
-        "TNT": 0,
-        "BREAKABLE_DOOR_1": 0,
-        "BREAKABLE_DOOR_2": 0,
-        "HAMMER": 0,
-        "FALLING_BLOCK": 0,
-        "LOOSE_BOARD": 0,
+        "ROPE": -1,
+        "DETONATOR": -1,
+        "TNT": -1,
+        "BREAKABLE_DOOR_1": -1,
+        "BREAKABLE_DOOR_2": -1,
+        "HAMMER": -1,
+        "FALLING_BLOCK": -1,
+        "LOOSE_BOARD": -1,
     }
     TILE_WIDTH = 16
     TILE_HEIGHT = 16
+    TILE_SCALE_FACTOR = 4
     COLORKEY = (0, 0, 0)
 
     def __init__(self, name):
@@ -136,9 +137,14 @@ class TileSheet:
         self.sheet = pygame.image.load(f'../art/platforming_sprites/{name}.png')
 
     def get_tile_code(self, tile_type):
-        return self.TILES[tile_type] if tile_type in self.TILES.keys() else -1
+        return self.TILES[tile_type] if tile_type in self.TILES.keys() else -100
 
     def get_tile(self, tile_code, tile_type, orientation):
+        # temp
+        if tile_code == -1:
+            tile_code = 0
+            tile_type = 4
+
         image = pygame.transform.rotate(
             self._image_at(
                 (
@@ -158,3 +164,6 @@ class TileSheet:
         image.blit(self.sheet, (0, 0), rect)
         image.set_colorkey(self.COLORKEY, pygame.RLEACCEL)
         return image
+
+    def get_tile_size(self):
+        return self.TILE_WIDTH * self.TILE_SCALE_FACTOR

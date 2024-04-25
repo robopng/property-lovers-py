@@ -22,10 +22,13 @@ class Renderer:
 
         self.screen.blit(self.background, self.background_rect)
 
-        if type(targets) is list or type(targets) is tuple:
-            targets = pygame.sprite.Group(targets)
-        targets.update()
-        targets.draw(self.screen)
+        # handle targets being a list of sprites or a list of sprite groups
+        if type(targets) is pygame.sprite.Group:
+            targets = [pygame.sprite.Group(targets)]
+
+        for target in targets:
+            target.update()
+            target.draw(self.screen)
 
         if text:
             self.display_text(targets)
@@ -35,8 +38,9 @@ class Renderer:
 
     def display_text(self, targets):
         for target in targets:
-            if target.has_content():
-                self.screen.blit(target.get_content(), target.get_content_pos())
+            for sprite in target:
+                if sprite.has_content():
+                    self.screen.blit(sprite.get_content(), sprite.get_content_pos())
         pygame.display.flip()
 
     def display_background(self, background=None):

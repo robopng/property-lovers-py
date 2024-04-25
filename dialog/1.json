@@ -40,15 +40,15 @@
   },
   {
     "text": "Well, regardless, there’s no point in going to restaurant without eating. Have you any insights on which entrees don’t miss?",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "Can’t go wrong with cabbage soup.": "5",
-      "Cinnamon rolls! There’s a second stomach for sweets ya know.": "6",
-      "The classic: A plate full of venison!": "7"
+      "Can’t go wrong with cabbage soup.": "1",
+      "Cinnamon rolls! There’s a second stomach for sweets ya know.": "2",
+      "The classic: A plate full of venison!": "3"
     },
     "from": "last",
     "next": "jump",
@@ -56,7 +56,7 @@
   },
   {
     "text": "Oh ho, a homestead of exceeding taste! ’Tis always hype to meet a fellow cabbage soup enjoyer.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "text": "I must admit that is not my usual go-to, but you have piqued my curiosity. And refusing to undertake any new endeavors is no way to go through life.",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -76,12 +76,12 @@
   },
   {
     "text": "What in the world dost thou think thine is cooking!? That much cholesterol could quell a revolution!",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {
     "text": "Thank you for the meal. If there’s nothing else, I shall be on my way. Have a good one.",
     "from": "last",
     "next": "end"
-  },
+  }
 ]
