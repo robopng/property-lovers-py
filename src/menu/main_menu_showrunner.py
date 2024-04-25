@@ -6,11 +6,12 @@ from src.menu_element import MenuSprite
 class MainMenuShowrunner:
     def __init__(self, renderer):
         self.renderer = renderer
+        menu_box_path = '../art/sim_sprites/dialogue_box.png'
         self.boxes = (
             # quit
-            MenuSprite(200, 200, 100, 100, content="Quit to Desktop", consequence=-1),
+            MenuSprite(200, 200, 100, 100, menu_box_path, content="Quit to Desktop", consequence=-1),
             # begin
-            MenuSprite(0, 0, 100, 100, content="Play", consequence=1),
+            MenuSprite(0, 0, 100, 100, menu_box_path, content="Play", consequence=1),
             # MenuSprite(150, 0, 100, 100),
             # MenuSprite(300, 0, 100, 100),
             # MenuSprite(200, 500, 100, 100),
