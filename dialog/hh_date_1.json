@@ -5,7 +5,7 @@
     "next": "continue"
   },
   {
-    "text": "You look like a deer caught in headlights. \n Not your usual haunt, I take it?",
+    "text": "You look like a deer caught in headlights. \nNot your usual haunt, I take it?",
     "from": "last",
     "next": "continue"
   },
@@ -21,19 +21,19 @@
     "jump": "player"
   },
   {
-    "text": "A thrill seeker, eh? Let\u0027s see if we can\u0027t find your \n breaking point.",
+    "text": "A thrill seeker, eh? Let\u0027s see just how many thrills \nyou can handle! Mwahahaha!",
     "from": "1",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "Oh, is that a tinge of fear I sense? There\u0027s nothing \n to be afraid of - unless you hate fun.",
+    "text": "Oh, is that a tinge of fear I sense? There\u0027s nothing \nto be afraid of - unless you hate fun.",
     "from": "2",
     "next": "jump",
     "jump": "npc"
   },
   {
-    "text": "Hmph! You clearly have no respect for the craft of horror. ...Yet.",
+    "text": "Hmph! You clearly have no respect for the craft of horror. \n...Yet.",
     "from": "3",
     "next": "jump",
     "jump": "npc"
@@ -55,12 +55,12 @@
     "jump": "player"
   },
   {
-    "text": "You know, just last night I oversaw an occult ritual \n and somehow that was the creepiest \n thing I\u0027ve heard all week... I like it.",
+    "text": "You know, just last night I oversaw an occult ritual \nand somehow that was the creepiest thing I\u0027ve \nheard all week... I like it.",
     "from": "5",
     "next": "continue"
   },
   {
-    "text": "You\u0027re pretty bold - I\u0027m impressed. I think \n the two of us are going to get along juuuuust fine...",
+    "text": "You\u0027re pretty bold - I\u0027m impressed. I think the two \nof us are going to get along juuuuust fine...",
     "from": "last",
     "next": "end"
   },
@@ -70,12 +70,12 @@
     "next": "continue"
   },
   {
-    "text": "Alas, the night is young, and I\u0027m not \n getting any younger. Stay safe - or don\u0027t.",
+    "text": "Alas, the night is young, and I\u0027m not \ngetting any younger. Stay safe - or don\u0027t.",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "Oh, come ON! Don\u0027t tell me *that\u0027s* all it takes to turn you into a blubbering mess!",
+    "text": "Oh, come ON! Don\u0027t tell me *that\u0027s* all \nit takes to turn you into a shivering mess!",
     "from": "7",
     "next": "continue"
   },
