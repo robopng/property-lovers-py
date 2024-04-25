@@ -13,8 +13,8 @@ class PlatformShowrunner:
         level.set_player_block()
         level.set_block_texture_array()
         while True:
-            self.poll()
             self.renderer.display(level.get_block_group())
+            self.poll()
         # load in level scanner
         # set current platforming block to player's block
         # loop:

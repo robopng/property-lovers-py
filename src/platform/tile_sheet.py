@@ -134,7 +134,6 @@ class TileSheet:
     def __init__(self, name):
         super().__init__()
         self.sheet = pygame.image.load(f'../art/platforming_sprites/{name}.png')
-        self.tiles = []
 
     def get_tile_code(self, tile_type):
         return self.TILES[tile_type] if tile_type in self.TILES.keys() else -1
@@ -154,7 +153,6 @@ class TileSheet:
         return image
 
     def _image_at(self, rectangle):
-        """Loads image from x,y,x+offset,y+offset"""
         rect = pygame.Rect(rectangle)
         image = pygame.Surface(rect.size).convert()
         image.blit(self.sheet, (0, 0), rect)

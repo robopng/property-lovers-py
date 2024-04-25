@@ -131,7 +131,7 @@ class LevelScanner:
                         break
 
                 tiled_block[i][j] = tile
-                tile.set_xy(j*self.SEGMENT_WIDTH, i*self.SEGMENT_HEIGHT)
+                tile.set_xy(j*16, i*16)
 
         self.blocks[self.current_block[0]][self.current_block[1]] = tiled_block
 
