@@ -106,8 +106,8 @@ class SimShowrunner:
                     sel_y,
                     sel_w,
                     sel_w,
-                    dialogue_box,
-                    content=i+1,
+                    f'../art/sim_sprites/{i+1}_button.png',
+                    content=None,
                     consequence=i
                 )
             )
