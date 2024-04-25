@@ -11,47 +11,47 @@
   },
   {
     "options":
-    [
-      {"Glad to be talking to someone with some history to them, that’s for sure!": "1"},
-      {"S-spectacular, thanks! I love your, uh, drawbridge!": "2"},
-      {"But of course! I must inquire as to the quality of thine.": "3"}
-    ],
+    {
+      "Glad to be talking to someone with some history to them, that’s for sure!": "1",
+      "S-spectacular, thanks! I love your, uh, drawbridge!": "2",
+      "But of course! I must inquire as to the quality of thine.": "3"
+    },
     "from": "last",
-    "next": "jump"
+    "next": "jump",
     "jump": "player"
   },
   {
-    "text": {"And I, in turn, am glad to be appreciated!": "4"},
+    "text": "And I, in turn, am glad to be appreciated!",
     "from": "1",
-    "next": "jump"
+    "next": "jump",
     "jump": "npc"
   },
   {
-    "text": {"Hah… well, er… m-my thanks! I quite like your… umm…": "4"},
+    "text": "Hah… well, er… m-my thanks! I quite like your… umm…",
     "from": "2",
-    "next": "jump"
+    "next": "jump",
     "jump": "npc"
   },
   {
-    "text": {"I appreciate the attempt, but I must admit I found that somewhat offensive.": "4"},
+    "text": "I appreciate the attempt, but I must admit I found that somewhat offensive.",
     "from": "3",
-    "next": "jump"
+    "next": "jump",
     "jump": "npc"
   },
   {
     "text": "Well, regardless, there’s no point in going to restaurant without eating. Have you any insights on which entrees don’t miss?",
-    "from": "4",
+    "from": "jump",
     "next": "continue"
   },
   {
     "options":
-    [
-      {"Can’t go wrong with cabbage soup.": "5"},
-      {"Cinnamon rolls! There’s a second stomach for sweets ya know.": "6"},
-      {"The classic: A plate full of venison!": "7"}
-    ],
+    {
+      "Can’t go wrong with cabbage soup.": "5",
+      "Cinnamon rolls! There’s a second stomach for sweets ya know.": "6",
+      "The classic: A plate full of venison!": "7"
+    },
     "from": "last",
-    "next": "jump"
+    "next": "jump",
     "jump": "player"
   },
   {
@@ -69,7 +69,7 @@
     "from": "6",
     "next": "continue"
   },
- {
+  {
     "text": "I have found this date sufficiently enjoyable. Perhaps we shall meet again someday.",
     "from": "last",
     "next": "end"

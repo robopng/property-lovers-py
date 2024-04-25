@@ -1,0 +1,92 @@
+[
+  {
+    "text": "Ah, you made it! I have been looking forward to seeing you again.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "I have something important to discuss with you.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I’m always ready to lend an ear!": 1,
+      "No slang today? Must be important, then.": 2,
+      "So the sky’s still blue?": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "I knew I was right to come to you.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "You would be correct.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "…Disregarding that…",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "As you know, I have been attempting to figuratively renovate myself to fit with our modern age.",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "text": "Yet recently, I feel that I am not getting anywhere. Is it truly too late to change…?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    [
+      "Changing is as simple as making the effort to. It’s never too late for that.": 5,
+      "You can’t change if you keep making excuses - like age, for one.": 6,
+      "Probably. Just don’t judge people if you can’t understand them.": 7
+    ],
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "I see… my age is nothing to be ashamed of. I may never be young again, yet there is nothing stopping me from continuing to learn and grow.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "The time we’ve spent together has been lovely - I couldn’t imagine a better friend to share my journey with. But, regardless, the date has just begun!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Hmm… that’s an interesting perspective. Perhaps my difficulties with change are a result of fear, rather than age…",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "This revelation could not have come to pass were it not for your counsel. Sincerely, I thank you.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "………",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "I… need to go. Conversing with you was a mistake, no cap.",
+    "from": "last",
+    "next": "end"
+  },
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Hi hi! Looks like I made it just on time!",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "So, after our last date, I decided to apply for a new job.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "That’s cool! It must’ve been hard.": 1,
+      "How’d it go?": 2,
+      "Hmmm.": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Super hard! But I figured I should at least try.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "It was mostly just tiring to be honest, but I learned a lot too.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "…You don’t sound too interested. Still, it’s thanks to you I even tried.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "And guess what? I got the job! So… I just wanted to say thanks. For motivating me to put my all into it.",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "You’re welcome! I’m just glad I could help.": 5,
+      "If you ask me, the accomplishment’s all yours.": 6,
+      "Where would you be without me?": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "And you really did help. This might be dramatic of me, but I really am glad we met.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "I really do feel stronger when we talk… I hope it’s not just me. Let’s push each other to be our very best!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "That’s sweet of you to say! Still, I couldn’t have done it without you.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "You’re a good friend. If you ever need of some help, let me know. I’m happy to support you!”",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Probably not in a new job. Still, can’t say I like the way you said that…",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "Well, I wanted to thank you, and now I have. I’ll get out of your hair now.",
+    "from": "last",
+    "next": "end"
+  },
+]
