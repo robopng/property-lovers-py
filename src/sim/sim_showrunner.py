@@ -2,6 +2,7 @@ import pygame
 from src.sim.dialog_controller import DialogController
 from src.sim.character import CharacterSprite
 from src.menu_element import MenuSprite
+from src.text_element import TextSprite
 
 
 class SimShowrunner:
@@ -14,10 +15,10 @@ class SimShowrunner:
     def __init__(self, renderer):
         # find a way to change this dynamically later
         # probably will come in from a save state file
-        self.date_code = 0
+        self.date_code = 1
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png')
+        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png', 1920/2 - 320, 650-640, 640, 640)
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
@@ -37,13 +38,13 @@ class SimShowrunner:
             # begin
             # MenuSprite(500, 500, 100, 100, consequence=-101)
             # player dialog 1
-            MenuSprite(384 + (12*8), 650 + (14*8), 48, 48, select_path[0], consequence=1),
+            TextSprite(328 + (12*8), 650 + (14*8), 48, 48, select_path[0], consequence=1),
             # player dialog 2
-            MenuSprite(384 + (12*8), 650 + (21 * 8), 48, 48, select_path[0], consequence=2),
+            TextSprite(328 + (12*8), 650 + (21 * 8), 48, 48, select_path[0], consequence=2),
             # player dialog 3
-            MenuSprite(384 + (12*8), 650 + (28 * 8), 48, 48, select_path[0], consequence=3),
+            TextSprite(328 + (12*8), 650 + (28 * 8), 48, 48, select_path[0], consequence=3),
             # npc dialog
-            MenuSprite(384 - (38*8), 650 , 37*8, 17*8, next_path[0], consequence=-100),
+            TextSprite(384 - (38*8), 650 , 37*8, 17*8, next_path[0], consequence=-100),
         )
         self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])

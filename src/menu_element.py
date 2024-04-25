@@ -15,7 +15,7 @@ class MenuSprite(src.static_sprite.StaticSprite):
         self.text_antialias = True
         # temporary
         self.transform_image((width, height))
-
+        self.has_text = False
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y

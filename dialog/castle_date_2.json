@@ -14,7 +14,7 @@
     {
       "You can take it a bit far sometimes.": 1,
       "If anything, you should use even more!": 2,
-      "The word ‘obnoxious’ doesn’t do it justice.": 3
+      "The word \u0027obnoxious\u0027 doesnt do it justice.": 3
     },
     "from": "last",
     "next": "jump",
@@ -46,16 +46,16 @@
   {
     "options":
     {
-      "I think it’s sweet that you try so hard, but all you really need to do be open minded.": 5,
+      "I think it\u0027s sweet that you try so hard, but all you really need to do be open minded.": 5,
       "Yeah, that sounds like it would suck.": 6,
-      "There’s no point in trying. Sometimes, it’s just too late to change.": 7
+      "There\u0027s no point in trying. Sometimes, it\u0027s just too late to change.": 7
     },
     "from": "last",
     "next": "jump",
     "jump": "player"
   },
   {
-    "text": "Perhaps you are correct. Still, I like to think there’s more for me to do than just be accepting.",
+    "text": "Perhaps you are correct. Still, I like to think there\u0027s more for me to do than just be accepting.",
     "from": "5",
     "next": "continue"
   },
@@ -75,7 +75,7 @@
     "next": "end"
   },
   {
-    "text": "And what, keep myself trapped in antiquated beliefs with which I no longer abide!? That ain’t it.",
+    "text": "And what, keep myself trapped in antiquated beliefs with which I no longer abide!? That ain\u0027t it.",
     "from": "7",
     "next": "continue"
   },

@@ -39,7 +39,7 @@
     "jump": "npc"
   },
   {
-    "text": "Well, regardless, there\u0027s no point in going to restaurant without eating. Have you any insights on which entrees don\u0027t miss?",
+    "text": "Well, regardless, there\u0027s no point in going to restaurant \nwithout eating. Have you any insights on which entrees don\u0027t miss?",
     "from": "last",
     "next": "continue"
   },
@@ -55,32 +55,32 @@
     "jump": "player"
   },
   {
-    "text": "Oh ho, a homestead of exceeding taste! \u0027Tis always hype to meet a fellow cabbage soup enjoyer.",
+    "text": "Oh ho, a homestead of exceeding taste! \u0027Tis always hype to meet \na fellow cabbage soup enjoyer.",
     "from": "1",
     "next": "continue"
   },
   {
-    "text": "Your company today has been lovely. Should it please you, I would love to meet again. I shall see you later, Bestie!",
+    "text": "Your company today has been lovely. Should it please you, I would \nlove to meet again. I shall see you later, Bestie!",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "I must admit that is not my usual go-to, but you have piqued my curiosity. And refusing to undertake any new endeavors is no way to go through life.",
+    "text": "I must admit that is not my usual go-to, but you have piqued \nmy curiosity. And refusing to undertake any new endeavors is no \nway to go through life.",
     "from": "2",
     "next": "continue"
   },
   {
-    "text": "I have found this date sufficiently enjoyable. Perhaps we shall meet again someday.",
+    "text": "I have found this date sufficiently enjoyable. \nPerhaps we shall meet again someday.",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "What in the world dost thou think thine is cooking!? That much cholesterol could quell a revolution!",
+    "text": "What in the world dost thou think thine is cooking!? \nThat much cholesterol could quell a revolution!",
     "from": "3",
     "next": "continue"
   },
   {
-    "text": "Thank you for the meal. If there\u0027s nothing else, I shall be on my way. Have a good one.",
+    "text": "Thank you for the meal. If there\u0027s nothing else, \nI shall be on my way. Have a good one.",
     "from": "last",
     "next": "end"
   }

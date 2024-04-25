@@ -40,7 +40,15 @@ class Renderer:
         for target in targets:
             for sprite in target:
                 if sprite.has_content():
-                    self.screen.blit(sprite.get_content(), sprite.get_content_pos())
+                    if sprite.content == str(sprite.content):
+                        if sprite.rect.width == sprite.rect.height:
+                            for text_surface, text_rect in sprite.render_wrapped((50, 5)):
+                                self.screen.blit(text_surface, text_rect)
+                        else:
+                            for text_surface, text_rect in sprite.render_wrapped((500, 60)):
+                                self.screen.blit(text_surface, text_rect)
+                    else:
+                        self.screen.blit(sprite.get_content(), sprite.get_content_pos())
         pygame.display.flip()
 
     def display_background(self, background=None):

@@ -12,9 +12,9 @@
   {
     "options":
     {
-      "I’m always ready to lend an ear!": 1,
+      "I\u0027m always ready to lend an ear!": 1,
       "No slang today? Must be important, then.": 2,
-      "So the sky’s still blue?": 3
+      "So the sky\u0027s still blue?": 3
     },
     "from": "last",
     "next": "jump",
@@ -51,9 +51,9 @@
   {
     "options":
     [
-      "Changing is as simple as making the effort to. It’s never too late for that.": 5,
-      "You can’t change if you keep making excuses - like age, for one.": 6,
-      "Probably. Just don’t judge people if you can’t understand them.": 7
+      "Changing is as simple as making the effort to. It\u0027s never too late for that.": 5,
+      "You can\u0027t change if you keep making excuses - like age, for one.": 6,
+      "Probably. Just don\u0027t judge people if you can\u0027t understand them.": 7
     ],
     "from": "last",
     "next": "jump",
@@ -65,12 +65,12 @@
     "next": "continue"
   },
   {
-    "text": "The time we’ve spent together has been lovely - I couldn’t imagine a better friend to share my journey with. But, regardless, the date has just begun!",
+    "text": "The time we\u0027ve spent together has been lovely - I couldn\u0027t imagine a better friend to share my journey with. But, regardless, the date has just begun!",
     "from": "last",
     "next": "end"
   },
   {
-    "text": "Hmm… that’s an interesting perspective. Perhaps my difficulties with change are a result of fear, rather than age…",
+    "text": "Hmm… that\u0027s an interesting perspective. Perhaps my difficulties with change are a result of fear, rather than age…",
     "from": "6",
     "next": "continue"
   },
