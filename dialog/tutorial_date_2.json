@@ -1,0 +1,87 @@
+[
+  {
+    "text": "H-hey! Sorry I’m… *pant*… l-late! O-over…time…",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Just lemme… lemme catch my breath…",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "No worries, take your time.": 1,
+      "Is it at least paid overtime?": 2,
+      "Couldn’t you have just gotten a ride?": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Phew… Glad there’s *someone* who gives me a break…",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "In this housing economy!? I… I wish.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "I- you- but- shut up! I-I’m not dumb!",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Alright, I’m good now. I work at a drywall mart, and the new guy didn’t show up. The manager made me cover his shift. I know this is kinda coming out of nowhere, but… do you ever get the feeling that your life isn’t going how you planned it?",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Sometimes, yeah. Just remember: If it was easy, everyone would be doing it.": 5,
+      "All the time! Sometimes it takes everything I’ve got just to make it through the day.": 6,
+      "You probably just didn’t try hard enough.": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "If it were easy, huh…? I never thought of it that way.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "Wow, that went by fast! Probably in part cause I was late, but I had a lot of fun, too! Let’s do this again some time!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Right!? Sometimes it even feels like breathing is gonna get me yelled at.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "I feel a little better now, thanks! See you later!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "What’s your damage!? If you’re trying to be encouraging, that’s not how you do it!",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "Well, I’m glad I didn’t get here on time. Would’ve sucked spending more time with you today. Ciao.",
+    "from": "last",
+    "next": "end"
+  },
+]
