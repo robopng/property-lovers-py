@@ -81,34 +81,33 @@ class Player(pygame.sprite.Sprite):
 
     def halt(self, direction):
         if direction == 'right':
+            self.rect.x -= 1
             self.move_right = False
-            self.rect.x -= self.speed_x
         elif direction == 'left':
+            self.rect.x += 1
             self.move_left = False
-            self.rect.x += self.speed_x
         elif direction == 'down':
+            self.rect.y -= 3
+            self.speed_y = 3
             self.move_down = True
             self.falling = False
             self.jumping = False
-            self.speed_y = 0
+            # self.speed_y = 1
         elif direction == 'up':
             self.jumping = False
             self.falling = True
+            self.rect.y += 1
+            self.speed_y = 10
 
     def collide(self, rect):
-        if rect.y > self.rect.y:  # what?? why no rect.h???
-            self.halt('down')
-            self.rect.y = rect.y - self.rect.h
-        if rect.y < self.rect.y:
-            self.halt('up')
-            self.rect.y = rect.y
-        if not rect.colliderect(self.rect): return
         if rect.x > self.rect.x and rect.y < self.rect.y + self.TILE_SIZE * self.SCALE_FACTOR:  # why do I not have to add the width here?? what??
             self.halt('right')
-            self.rect.x = rect.x
         if rect.x < self.rect.x and rect.y < self.rect.y + self.TILE_SIZE * self.SCALE_FACTOR:
             self.halt('left')
-            self.rect.x = rect.x
+        if rect.y > self.rect.y:  # what?? why no rect.h???
+            self.halt('down')
+        if rect.y < self.rect.y:
+            self.halt('up')
 
     def update(self):
         if self.last_pos[1] - self.rect.y > 2: self.falling = True

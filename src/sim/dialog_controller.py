@@ -20,8 +20,11 @@ class DialogController:
         # if dynamic jumping is not required, just use the file directly (no list).
         self.full_text = []
         self.current = 0
+        self.name = 0
 
     def load_file(self, name):
+        self.name = name
+        if name > 100: return None
         with open(f'../dialog/{name}.json', mode='r') as file:
             self.full_text = json.load(file)
             print(self.full_text)
@@ -43,7 +46,6 @@ class DialogController:
 
         while self.full_text[self.current]['from'] != 'last':
             self.current += 1
-        print(self.full_text[self.current]['text'])
         return [self.full_text[self.current]['text']]
 
     def jump(self, pos):

@@ -27,7 +27,7 @@
     "jump": "npc"
   },
   {
-    "text": "Hah… well, er… m-my thanks! I quite like your… umm…",
+    "text": "Hah... well, er... m-my thanks! I quite like your... umm…",
     "from": "2",
     "next": "jump",
     "jump": "npc"

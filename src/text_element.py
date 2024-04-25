@@ -49,7 +49,7 @@ class TextSprite(src.static_sprite.StaticSprite):
             for i, line in enumerate(self.wrapped_text):
                 text_surface = self.font.render(line, self.text_antialias, self.text_color)
                 text_rect = text_surface.get_rect()
-                text_rect.topleft = (self.rect.x + offset[0], self.rect.y + offset[1] + i * self.font.get_linesize())
+                text_rect.topleft = (self.rect.x + offset[0], self.rect.y + offset[1] + i * (self.font.get_linesize()+8))
                 rendered.append((text_surface, text_rect))
             return rendered
         else:

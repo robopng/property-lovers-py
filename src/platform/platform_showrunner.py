@@ -57,6 +57,7 @@ class PlatformShowrunner:
             if event.type == pygame.KEYDOWN:
                 self._poll_keydown(event)
 
+
     def _poll_keyup(self, event):
         key = event.key
         if key == pygame.K_SPACE: self.player.jump()

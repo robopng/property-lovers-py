@@ -45,7 +45,7 @@ class LevelScanner:
     }
 
     def __init__(self, name):
-        self.path_to_level = f'../art/platforming_levels/{name}_layout.png'
+        self.path_to_level = f'../art/platforming_levels/{name}_layout_entitiless.png'
         entire_array = np.asarray(Image.open(self.path_to_level).convert('RGB'))
         self.SEGMENT_HEIGHT = 17
         self.SEGMENT_WIDTH = 30
