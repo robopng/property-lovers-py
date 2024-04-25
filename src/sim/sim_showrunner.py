@@ -17,7 +17,7 @@ class SimShowrunner:
         self.date_code = 0
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(f'../art/sim_sprites/house_{self.date_code}.png')
+        self.npc_house = CharacterSprite(f'../art/sim_sprites/{self.date_code}.png')
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()

@@ -25,7 +25,7 @@ class Player(pygame.sprite.Sprite):
         self._next_in_sheet()
         self.rect = self.image.get_rect()
         self.rect.x = pos[0]
-        self.rect.y = pos[1] - self.TILE_SIZE * self.SCALE_FACTOR * 2
+        self.rect.y = pos[1] - self.TILE_SIZE * self.SCALE_FACTOR * 2 + 20  # the + 20 just gets it on the ground
         self.mask = pygame.mask.from_surface(self.image)
         self.gravity = 0.1
         self.speed_x = 8
@@ -35,6 +35,8 @@ class Player(pygame.sprite.Sprite):
         self.move_right, self.move_left = False, False
         self.move_up, self.move_down = False, False
         self.jumping = False
+        self.falling = False
+        self.last_pos = 0, 0
 
     def check_bounds(self, screen):
         if self.rect.x + self.rect.w > screen.get_width():
@@ -62,7 +64,7 @@ class Player(pygame.sprite.Sprite):
             self.move_down = True
 
     def jump(self):
-        if not self.jumping:
+        if not self.jumping and not self.falling:
             self.jumping = True
             self.preserve_y = self.rect.y
             self.speed_y = -37  # don't touch
@@ -73,46 +75,52 @@ class Player(pygame.sprite.Sprite):
             self.speed_y *= (1 - self.gravity)
         # apex reached
         if self.rect.y < self.preserve_y - self.max_jump_height:
-            self.move_down = True
             self.speed_y = 1
-        # descent
-        if self.speed_y >= 1:
-            self.speed_y *= (1 + self.gravity)
+            self.jumping = False
+            self.falling = True
 
     def halt(self, direction):
         if direction == 'right':
-            self.rect.x -= 1
             self.move_right = False
+            self.rect.x -= self.speed_x
         elif direction == 'left':
-            self.rect.x += 1
             self.move_left = False
+            self.rect.x += self.speed_x
         elif direction == 'down':
-            self.rect.y -= 1
+            self.move_down = True
+            self.falling = False
             self.jumping = False
-            self.move_down = False
             self.speed_y = 0
         elif direction == 'up':
-            self.rect.y += 1
-            self.move_down = True
-            self.speed_y = 10
+            self.jumping = False
+            self.falling = True
 
     def collide(self, rect):
-        if rect.x <= self.rect.x:
-            self.halt('right')
-        if rect.x <= self.rect.x + self.rect.w:
-            self.halt('left')
-        if rect.y < self.rect.y + self.rect.height:
+        if rect.y > self.rect.y:  # what?? why no rect.h???
             self.halt('down')
+            self.rect.y = rect.y - self.rect.h
         if rect.y < self.rect.y:
             self.halt('up')
+            self.rect.y = rect.y
+        if not rect.colliderect(self.rect): return
+        if rect.x > self.rect.x and rect.y < self.rect.y + self.TILE_SIZE * self.SCALE_FACTOR:  # why do I not have to add the width here?? what??
+            self.halt('right')
+            self.rect.x = rect.x
+        if rect.x < self.rect.x and rect.y < self.rect.y + self.TILE_SIZE * self.SCALE_FACTOR:
+            self.halt('left')
+            self.rect.x = rect.x
 
     def update(self):
-        if self.jumping:
-            self.jump_update()
-            self.rect.y += self.speed_y
+        if self.last_pos[1] - self.rect.y > 2: self.falling = True
+        # jump and gravity handling
+        if self.jumping: self.jump_update()
+        elif self.falling: self.speed_y *= (1 + self.gravity)
         elif self.move_down: self.rect.y += self.speed_y
+        # horizontal movement handling
         if self.move_right: self.rect.x += self.speed_x
         if self.move_left: self.rect.x -= self.speed_x
+        self.rect.y += self.speed_y
+        self.last_pos = self.rect.x, self.rect.y
         # self._next_in_sheet()
 
     def get_image(self):

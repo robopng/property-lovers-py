@@ -14,15 +14,18 @@ clock = pygame.time.Clock()
 # no handovers or interactions need to be considered within the bounds
 # of init.py
 renderer = Renderer(screen, clock)
+sim = SimShowrunner(renderer)
+main_menu = MainMenuShowrunner(renderer)
+platformer = PlatformShowrunner(renderer)
 code_table = {
-    "SIM": SimShowrunner(renderer),
-    "PLAT": PlatformShowrunner(renderer),
-    "MAIN_MENU": MainMenuShowrunner(renderer),
-    "MENU": MainMenuShowrunner(renderer),  # functionless until the game expands to have a separate in-level menu
+    "SIM": sim,
+    "PLAT": sim,  # platformer,
+    "MAIN_MENU": main_menu,
+    "MENU": main_menu,  # functionless until the game expands to have a separate in-level menu
     "NONE": None,
     "LAST": None  # memory code
 }
-code = "PLAT"
+code = "SIM"
 
 # yield complete control to respective showrunner
 # when showrunner needs to stop, it will return code of the next showrunner in line

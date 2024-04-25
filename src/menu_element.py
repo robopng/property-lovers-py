@@ -26,7 +26,7 @@ class MenuSprite(src.static_sprite.StaticSprite):
         return self.content
 
     def get_content_pos(self):
-        return self.rect.x, self.rect.y
+        return self.rect.x + self.rect.w/4, self.rect.y + self.rect.h/4
 
     def get_consequence(self):
         return self.consequence
