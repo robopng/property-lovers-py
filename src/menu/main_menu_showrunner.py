@@ -10,17 +10,17 @@ class MainMenuShowrunner:
         self.boxes = (
             # quit button
             MenuSprite(
-                renderer.screen.get_width() / 2 - 175,
+                (renderer.screen.get_width() - 300) / 2, # changed to center
                 renderer.screen.get_height() / 2 + 50,
                 300,
                 100,
                 menu_box_path,
-                content="Quit to Desktop",
+                content="QUIT", # more succinct
                 consequence=-1
             ),
             # begin button
             MenuSprite(
-                renderer.screen.get_width() / 2 - 175,
+                (renderer.screen.get_width() - 300) / 2, # changed to center
                 renderer.screen.get_height() / 2 - 275,
                 300,
                 300,
@@ -28,6 +28,14 @@ class MainMenuShowrunner:
                 content="PLAY",
                 consequence=1
             ),
+            MenuSprite(
+                (renderer.screen.get_width() - 300) / 2,
+                renderer.screen.get_height() / 2 - 350
+                300,
+                375,
+                menu_box_path,
+                content="PROPERTY LOVERS",
+            ),       
             # MenuSprite(150, 0, 100, 100),
             # MenuSprite(300, 0, 100, 100),
             # MenuSprite(200, 500, 100, 100),
