@@ -35,15 +35,15 @@
   },
   {
     "text": "You know, I really like your vibe. You seem really interesting… would you like to go out sometime?",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "I think you’re pretty cool too! I’d love to.": 5,
-      "Maybe..? I’ll have to check my schedule.": 6,
-      "Uh, I- M-maybe? I mean, uh, I ummm…": 7
+      "I think you’re pretty cool too! I’d love to.": 1,
+      "Maybe..? I’ll have to check my schedule.": 2,
+      "Uh, I- M-maybe? I mean, uh, I ummm…": 3
     },
     "from": "last",
     "next": "jump",
@@ -51,17 +51,17 @@
   },
   {
     "text": "Great! Here's my landline number. Talk to you soon!",
-    "from": "5",
+    "from": "1",
     "next": "end"
   },
   {
     "text": "Oh! No worries. Well, you let me know!",
-    "from": "6",
+    "from": "2",
     "next": "end"
   },
   {
     "text": "Uh… no pressure. You don't have to answer right away. See ya later!",
-    "from": "7",
+    "from": "3",
     "next": "end"
   }
 ]

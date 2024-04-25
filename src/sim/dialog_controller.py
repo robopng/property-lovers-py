@@ -49,7 +49,7 @@ class DialogController:
         try:
             return [self.full_text[self.current]['text']]
         except KeyError as ignored:
-            return ["player input"]
+            return [""]
 
     def jump(self, pos):
         """

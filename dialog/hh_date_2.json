@@ -40,15 +40,15 @@
   },
   {
     "text": "But hey, now that you\u0027re seeing the world through eerier \neyes, we can hit the town in the dead of night. What do you want \nto do next?",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "I should accessorize - how about looking for some skeletons or something?": 5,
-      "I guess the first step would be to hang out at a graveyard.": 6,
-      "I could use a nap in a dank, dark tomb.": 7
+      "I should accessorize - how about looking for some skeletons or something?": 1,
+      "I guess the first step would be to hang out at a graveyard.": 2,
+      "I could use a nap in a dank, dark tomb.": 3
     },
     "from": "last",
     "next": "jump",
@@ -56,7 +56,7 @@
   },
   {
     "text": "Ooooh, you really are speaking my language now!",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "text": "Starting slow, eh? Nothing wrong with that I suppose.",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "text": "Booooooooring. All the cool, scary haunted house things to \ndo and you pick sleeping!?",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {

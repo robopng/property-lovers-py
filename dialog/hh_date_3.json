@@ -40,15 +40,15 @@
   },
   {
     "text": "Fun\u0027s the name of the game, at the end of the day. \nLivin\u0027 carefree, embracing the darker side of things \nand finding the comedy in it... that\u0027s what it\u0027s all about.",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "Makes sense to me. Life\u0027s always gonna laugh, so you either \nget laughed at or laughed with.": 5,
-      "I never thought of it like that. I like it, though.": 6,
-      "That\u0027s a really weird way of looking at things.": 7
+      "Makes sense to me. Life\u0027s always gonna laugh, so you either \nget laughed at or laughed with.": 1,
+      "I never thought of it like that. I like it, though.": 2,
+      "That\u0027s a really weird way of looking at things.": 3
     },
     "from": "last",
     "next": "jump",
@@ -56,7 +56,7 @@
   },
   {
     "text": "Yeah! That\u0027s exactly it! I\u0027ve met many a \nhaunted house in my day, but never one who gets it \nquite like you do.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "text": "Give it a shot, you might like it. Easy to filter out \nthe things that aren\u0027t important when you understand \nhow few things are.",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "text": "Oh, so different equals weird, huh? Blegh. Guess I know \nwhat flavor of haunted house you\u0027ve become. The gross kind.",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {

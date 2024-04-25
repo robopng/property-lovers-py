@@ -16,8 +16,8 @@ class SimShowrunner:
     DATES = [
         "tutorial_date",
         "castle_date",
-        "hh_date"
-        "beach_date"
+        "hh_date",
+        # "beach_date"
     ]
 
     def __init__(self, renderer):
@@ -27,13 +27,7 @@ class SimShowrunner:
         self.date_code = 1
         self.current_date_success = 0
         # sprite and menu box initialization
-        self.npc_house = CharacterSprite(
-            f'../art/sim_sprites/{self.DATES[self.date]}.png',
-            1920 / 2 - 320,
-            650 - 640,
-            640,
-            640
-        )
+        self.npc_house = None
         # self.pc_house
         # self.player
         self.sprites = pygame.sprite.Group()
@@ -115,7 +109,6 @@ class SimShowrunner:
 
         self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])
-        self.sprites.add(self.npc_house)
         self.renderer = renderer
         self.scroll = DialogController()
 
@@ -131,9 +124,17 @@ class SimShowrunner:
         # dialog files ALWAYS start from an NPC dialog line;
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
-        self.selector()
 
         if not self.scroll.has_file():
+            self.selector()
+            self.npc_house = CharacterSprite(
+                f'../art/sim_sprites/{self.DATES[self.date]}.png',
+                1920 / 2 - 320,
+                650 - 640,
+                640,
+                640
+            )
+            self.sprites.add(self.npc_house)
             self.scroll.load_file(f'{self.DATES[self.date]}_{self.date_code}')
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
@@ -186,6 +187,16 @@ class SimShowrunner:
         if self.date_code > 3:
             self.date_code = 1
             self.date += 1
+            self.npc_house = CharacterSprite(
+                f'../art/sim_sprites/{self.DATES[self.date]}.png',
+                1920 / 2 - 320,
+                650 - 640,
+                640,
+                640
+            )
+            self.sprites.add(self.npc_house)
+            if self.date >= len(self.DATES): self.date = 0
+        self.scroll.load_file(f'{self.DATES[self.date]}_{self.date_code}')
         return "MAIN_MENU"
 
     def selector(self):

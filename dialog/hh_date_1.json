@@ -46,9 +46,9 @@
   {
     "options":
     {
-      "Depends. Do I get to make other houses perform rituals to appease me?": "5",
-      "No way! That would suck for a thousand reasons!": "6",
-      "Eeeeek! N-no thank you!": "7"
+      "Depends. Do I get to make other houses perform rituals to appease me?": "1",
+      "No way! That would suck for a thousand reasons!": "2",
+      "Eeeeek! N-no thank you!": "3"
     },
     "from": "last",
     "next": "jump",
@@ -56,7 +56,7 @@
   },
   {
     "text": "You know, just last night I oversaw an occult ritual \nand somehow that was the creepiest thing I\u0027ve \nheard all week... I like it.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "text": "Brave of you to say that straight to my face. You\u0027re fun.",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "text": "Oh, come ON! Don\u0027t tell me *that\u0027s* all \nit takes to turn you into a shivering mess!",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {

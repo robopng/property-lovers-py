@@ -40,7 +40,7 @@
   },
   {
     "text": "Alright, I’m good now. I work at a drywall mart, and the new guy didn’t show up. The manager made me cover his shift.",
-    "from": "jump",
+    "from": "last",
     "next": "continue"
   },
   {
@@ -51,9 +51,9 @@
   {
     "options":
     {
-      "Sometimes, yeah. Just remember: If it was easy, everyone would be doing it.": 5,
-      "All the time! Sometimes it takes everything I’ve got just to make it through the day.": 6,
-      "You probably just didn’t try hard enough.": 7
+      "Sometimes, yeah. Just remember: If it was easy, everyone would be doing it.": 1,
+      "All the time! Sometimes it takes everything I’ve got just to make it through the day.": 2,
+      "You probably just didn’t try hard enough.": 3
     },
     "from": "last",
     "next": "jump",
@@ -61,7 +61,7 @@
   },
   {
     "text": "If it were easy, huh…? I never thought of it that way.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -71,7 +71,7 @@
   },
   {
     "text": "Right!? Sometimes it even feels like breathing is gonna get me yelled at.",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -81,7 +81,7 @@
   },
   {
     "text": "What’s your damage!? If you’re trying to be encouraging, that’s not how you do it!",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {

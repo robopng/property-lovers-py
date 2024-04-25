@@ -40,15 +40,15 @@
   },
   {
     "text": "I suppose I do it in an attempt to modernize myself \nsomewhat. Tis... difficult, to see the world you were \nraised within change, even for the better.",
-    "from": "4",
+    "from": "last",
     "next": "continue"
   },
   {
     "options":
     {
-      "I think it\u0027s sweet how hard you try, maybe try being more open minded.": 5,
-      "Yeah, that sounds like it would suck.": 6,
-      "There\u0027s no point in trying. Sometimes, it\u0027s just too late to change.": 7
+      "I think it\u0027s sweet how hard you try, maybe try being more open minded.": 1,
+      "Yeah, that sounds like it would suck.": 2,
+      "There\u0027s no point in trying. Sometimes, it\u0027s just too late to change.": 3
     },
     "from": "last",
     "next": "jump",
@@ -56,7 +56,7 @@
   },
   {
     "text": "Perhaps you are correct. Still, I like to think \nthere\u0027s more for me to do than just be accepting.",
-    "from": "5",
+    "from": "1",
     "next": "continue"
   },
   {
@@ -66,7 +66,7 @@
   },
   {
     "text": "No cap, bestie. No cap...",
-    "from": "6",
+    "from": "2",
     "next": "continue"
   },
   {
@@ -76,7 +76,7 @@
   },
   {
     "text": "And what, keep myself trapped in antiquated beliefs \nwith which I no longer abide!? That ain\u0027t it.",
-    "from": "7",
+    "from": "3",
     "next": "continue"
   },
   {
