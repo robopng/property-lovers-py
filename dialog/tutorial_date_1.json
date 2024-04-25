@@ -7,9 +7,9 @@
   {
     "options":
     {
-      Thanks…": 1,
-      You look today too..?": 2,
-      What’s it to you??": 3
+      "Thanks…": 1,
+      "You look today too..?": 2,
+      "What’s it to you??": 3
     },
     "from": "last",
     "next": "jump",
