@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Well, well, well. Here I thought you might try to back out.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "You look like a deer caught in headlights. \n Not your usual haunt, I take it?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "No, but I have to admit I like the thrill.": 1,
+      "Umm, n-no, not really…": 2,
+      "Did you have to pick somewhere that smells like mold?": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "A thrill seeker, eh? Let\u0027s see if we can\u0027t find your \n breaking point.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Oh, is that a tinge of fear I sense? There\u0027s nothing \n to be afraid of - unless you hate fun.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Hmph! You clearly have no respect for the craft of horror. …Yet.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "That being said, I think you\u0027ve got the makings of a \n haunted house yourself. I\u0027d be happy to walk you through \n the process, if you\u0027re at all curious…",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Depends. Do I get to make other houses perform rituals to appease me?": 5,
+      "No way! That would suck for a thousand reasons!": 6,
+      "Eeeeek! N-no thank you!": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "You know, just last night I oversaw an occult ritual \n and somehow that was the creepiest \n thing I\u0027ve heard all week… I like it.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "You\u0027re pretty bold - I\u0027m impressed. I think \n the two of us are going to get along juuuuust fine…",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Brave of you to say that straight to my face. You\u0027re fun.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "Alas, the night is young, and I\u0027m not \n getting any younger. Stay safe - or don\u0027t.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Oh, come ON! Don\u0027t tell me *that\u0027s* all it takes to turn you into a blubbering mess!",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "Ugh, you\u0027re no fun. What a boring way to spend my night…",
+    "from": "last",
+    "next": "end"
+  },
+]

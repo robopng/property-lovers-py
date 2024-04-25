@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Would you look who it is! I almost wasn\u0027t expecting to see you again.",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "Oh, don\u0027t get me wrong - it\u0027s a very welcome \n surprise. You seem a touch more confident \n this time, too.",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I was out of my element last time. Not anymore.": 1,
+      "What can I say? I\u0027ve got no reason to be afraid anymore.": 2,
+      "Do I? I hope I\u0027m not getting used to the stench.": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Now that\u0027s a good answer! You take to this quickly.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "And here I was looking forward to a startled noise or two! \n …Kidding, kidding.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Too bad, you are. Quit groaning about it or I\u0027ll \n treat you to the groans of the demolished \n next time you sleep.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "But hey, now that you\u0027re seeing the world \n through eerier eyes, we can hit the town in the dead \n of night. What do you want to do next?",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I should accessorize - how about looking for some \n skeletons or something?": 5,
+      "I guess the first step would be to hang out at a graveyard.": 6,
+      "I could use a nap in a dank, dark tomb.": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Ooooh, you really are speaking my language now!",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "I was right to act on that potential I saw in you. \n I\u0027m having even more fun than I thought I\u0027d have!",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Starting slow, eh? Nothing wrong with that I suppose.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "You\u0027re shaping up to be one hell of a \n haunted house! Let\u0027s see this through to the end.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Booooooooring. All the cool, scary haunted house \n things to do and you pick sleeping!?",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "You know, I was actually starting to get \n invested in this whole thing we have going. \n Turns out you\u0027re no fun after all.",
+    "from": "last",
+    "next": "end"
+  },
+]

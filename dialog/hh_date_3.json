@@ -1,0 +1,87 @@
+[
+  {
+    "text": "Hey hey, look who it is! You really do look like \n you belong here - I\u0027d say you\u0027re nearing the end \n of my lessons!",
+    "from": "start",
+    "next": "continue"
+  },
+  {
+    "text": "So, let\u0027s hear it: What\u0027s the most important part of being a haunted house?",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I know I wouldn\u0027t do it if I wasn\u0027t having fun, so… that?": 1,
+      "Oh, it\u0027s gotta be being scary!": 2,
+      "Smelling bad?": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "You got it in one! I taught you well.",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Certainly an important part of it for some of us, \n but the number one requirement is simple: \n having a good time!",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Wow, you\u0027re really still stuck on that, huh? …Fun. \n The answer is fun. Foreign concept, I know.",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Fun\u0027s the name of the game, at the end of the day. \n Livin\u0027 carefree, embracing the darker side \n of things and finding the comedy in it… \n that\u0027s what it\u0027s all about.",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Makes sense to me. Life\u0027s always gonna laugh, so you either \n get laughed at or laughed with.": 5,
+      "I never thought of it like that. I like it, though.": 6,
+      "That\u0027s a really weird way of looking at things.": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Yeah! That\u0027s exactly it! I\u0027ve met many a \n haunted house in my day, but never one who gets it \n quite like you do.",
+    "from": "5",
+    "next": "continue"
+  },
+  {
+    "text": "At first, I was just hoping to kill some time with you. \n Who coulda guessed I\u0027d find a new partner in crime?",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Give it a shot, you might like it. \n Easy to filter out the things that aren\u0027t important \n when you understand how few things are.",
+    "from": "6",
+    "next": "continue"
+  },
+  {
+    "text": "Anyways, we were talking about fun! \n On that topic, how about we get out of here? \n No reason to stop hanging out just cause you\u0027re a \n bona fide haunted house now.",
+    "from": "last",
+    "next": "end"
+  },
+  {
+    "text": "Oh, so different equals weird, huh? \n Blegh. Guess I know what flavor of haunted \n house you\u0027ve become. The gross kind.",
+    "from": "7",
+    "next": "continue"
+  },
+  {
+    "text": "Enough of the joking insults - you completely \n and utterly bore me. I held up my end of the bargain, \n so get lost.",
+    "from": "last",
+    "next": "end"
+  },
+]
