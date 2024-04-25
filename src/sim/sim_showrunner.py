@@ -20,26 +20,25 @@ class SimShowrunner:
         self.npc_house = CharacterSprite(f'../art/sim_sprites/{self.date_code}.png')
         # self.pc_house
         # self.player
-        # always display static boxes
         self.sprites = pygame.sprite.Group()
         # too tired to think of a better method for this right now
         self.NPC_DIALOG = 4
         self.PLAYER_DIALOG = 1
         self.STATICS = 0
-        menu_box_path = '../art/sim_sprites/0.png'
+        menu_box_path = '../art/sim_sprites/dialogue_box.png'
         self.boxes = (
             # return to menu button
-            MenuSprite(200, 200, 100, 100, content="Menu", consequence=-10),
+            MenuSprite(200, 200, 100, 100, menu_box_path, content="Menu", consequence=-10),
             # begin
             # MenuSprite(500, 500, 100, 100, consequence=-101)
             # player dialog 1
-            MenuSprite(0, 0, 100, 100, consequence=1),
+            MenuSprite(0, 0, 100, 100, menu_box_path, consequence=1),
             # player dialog 2
-            MenuSprite(150, 0, 100, 100, consequence=2),
+            MenuSprite(150, 0, 100, 100, menu_box_path, consequence=2),
             # player dialog 3
-            MenuSprite(300, 0, 100, 100, consequence=3),
+            MenuSprite(300, 0, 100, 100, menu_box_path, consequence=3),
             # npc dialog
-            MenuSprite(200, 500, 100, 100, consequence=-100),
+            MenuSprite(200, 500, 100, 100, menu_box_path, consequence=-100),
         )
         self.sprites.add(self.boxes[self.STATICS])
         self.sprites.add(self.npc_house)
@@ -58,7 +57,7 @@ class SimShowrunner:
         # dialog files ALWAYS start from an NPC dialog line;
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
-        if not self.scroll.has_file(): self.scroll.load_file(self.date_code)
+        if not self.scroll.has_file(): self.scroll.load_file(1)
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
         self.renderer.set_background(self.date_code)

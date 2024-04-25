@@ -1,0 +1,67 @@
+[
+  {
+    "text": "Hey! I think we’re from the same neighborhood and I’ve noticed you around. Wow… you look really good today!",
+    "from": "last",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "Thanks…": 1,
+      "You look today too..?": 2,
+      "What’s it to you??": 3
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "You’re welcome!",
+    "from": "1",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Haha! You’re funny.",
+    "from": "2",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "Ah! Uh, my bad! But there's no need to be aggressive…",
+    "from": "3",
+    "next": "jump",
+    "jump": "npc"
+  },
+  {
+    "text": "You know, I really like your vibe. You seem really interesting… would you like to go out sometime?",
+    "from": "jump",
+    "next": "continue"
+  },
+  {
+    "options":
+    {
+      "I think you’re pretty cool too! I’d love to.": 5,
+      "Maybe..? I’ll have to check my schedule.": 6,
+      "Uh, I- M-maybe? I mean, uh, I ummm…": 7
+    },
+    "from": "last",
+    "next": "jump",
+    "jump": "player"
+  },
+  {
+    "text": "Great! Here's my landline number. Talk to you soon!",
+    "from": "5",
+    "next": "end"
+  },
+  {
+    "text": "Oh! No worries. Well, you let me know!",
+    "from": "6",
+    "next": "end"
+  },
+  {
+    "text": "Uh… no pressure. You don't have to answer right away. See ya later!",
+    "from": "7",
+    "next": "end"
+  },
+]

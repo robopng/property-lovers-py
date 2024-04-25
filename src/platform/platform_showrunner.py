@@ -1,10 +1,20 @@
+import pygame
+
+from src.platform.level_scanner import LevelScanner
 
 
 class PlatformShowrunner:
     def __init__(self, renderer):
-        pass
+        self.renderer = renderer
+        self.level_code = 1
 
     def begin(self):
+        level = LevelScanner(self.level_code)
+        level.set_player_block()
+        level.set_block_texture_array()
+        while True:
+            self.renderer.display(level.get_block_group())
+            self.poll()
         # load in level scanner
         # set current platforming block to player's block
         # loop:
@@ -24,4 +34,6 @@ class PlatformShowrunner:
         # window close
         # keyboard presses for movement
         # keyboard presses for hotkeys (e.g. esc for menu)
-        pass
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                exit()

@@ -1,6 +1,12 @@
+import numpy
+import pygame.time
 from PIL import Image
 import numpy as np
-from src.platform.tile import Tile, decide_texture
+
+import src.renderer
+from src.platform.tile_sheet import TileSheet, decide_texture
+from src.platform.tile import Tile
+from src.static_sprite import StaticSprite
 
 
 class LevelScanner:
@@ -15,31 +21,31 @@ class LevelScanner:
     """
 
     COLORS = {
-        [0, 0, 0, 0]: "TRANSPARENT",
-        [0, 0, 0]: "BLACK",
-        [255, 255, 255]: "WHITE",
-        [138, 11, 48]: "ROPE",
-        [23, 31, 16]: "TILE_TYPE_1",
-        [200, 193, 154]: "TILE_TYPE_2",
+        # "TRANSPARENT": [0, 0, 0, 0],
+        "BLACK": [0, 0, 0],
+        "WHITE": [255, 255, 255],
+        "TILE_TYPE_1": [23, 31, 16],
+        "TILE_TYPE_2": [200, 193, 154],
         "TILE_TYPE_3": [79, 73, 39],
         "TILE_TYPE_4": [155, 155, 155],
-        [0, 204, 255]: "SPIKE_TYPE_1",
-        [255, 102, 0]: "SPIKE_TYPE_2",
+        "SPIKE_TYPE_1": [0, 204, 255],
+        "SPIKE_TYPE_2": [255, 102, 0],
         "SPIKE_TYPE_3": [255, 0, 234],
         "SPIKE_TYPE_4": [0, 255, 191],
-        [251, 242, 54]: "SPAWNPOINT",
-        [109, 2, 2]: "DETONATOR",
-        [190, 70, 70]: "TNT",
+        "FIRST_SPAWNPOINT": [255, 250, 141],
+        "SPAWNPOINT": [251, 242, 54],
+        "ROPE": [138, 11, 48],
+        "DETONATOR": [109, 2, 2],
+        "TNT": [190, 70, 70],
         "BREAKABLE_DOOR_1": [50, 60, 57],
         "BREAKABLE_DOOR_2": [60, 50, 60],
-        [118, 66, 138]: "HAMMER",
-        [143, 86, 59]: "FALLING_BLOCK",
-        [102, 57, 49]: "LOOSE_BOARD",
-        "FIRST_SPAWNPOINT": [255, 250, 141]
+        "HAMMER": [118, 66, 138],
+        "FALLING_BLOCK": [143, 86, 59],
+        "LOOSE_BOARD": [102, 57, 49],
     }
 
     def __init__(self, name):
-        self.path_to_level = f'../../art/platforming_levels/{name}.png'
+        self.path_to_level = f'../art/platforming_levels/{name}_layout.png'
         entire_array = np.asarray(Image.open(self.path_to_level).convert('RGB'))
         self.SEGMENT_HEIGHT = 17
         self.SEGMENT_WIDTH = 30
@@ -68,7 +74,6 @@ class LevelScanner:
         # have a look yourself if you want... the shape should be (17, 30, 4) for most of them
         # ones at the end may come out as slightly larger or smaller depending on issues with filesize
         self.blocks = blocks
-        self.blocks_alt = np.compress(blocks)
         self.current_block = None
 
     def set_player_block(self):
@@ -81,7 +86,7 @@ class LevelScanner:
             for j in range(len(self.blocks[i])):
                 for row in self.blocks[i][j]:
                     for pixel in row:
-                        if self.COLORS[pixel.toList()] == "SPAWNPOINT":
+                        if self.COLORS["FIRST_SPAWNPOINT"] == pixel.tolist():
                             self.current_block = (i, j)
                             return
 
@@ -91,22 +96,52 @@ class LevelScanner:
         Tile textures are represented by colors, but tile types and orientations by integer values.
         :return: a copy of the current block including tile types and orientations per pixel
         """
-        block = self.blocks[self.current_block[0], self.current_block[1]]
+        block = self.blocks[self.current_block[0]][self.current_block[1]]
+        tiled_block = numpy.empty((self.SEGMENT_HEIGHT, self.SEGMENT_WIDTH), dtype=Tile)
+        used_tiles = []
         # not entirely sure about the mutability here but really don't want to risk it
         for i in range(len(block)):
             for j in range(len(block[i])):
                 # join the tile type to the RGB color for processing outside of method
                 # after this each pixel should read [R, G, B, A, TILE, ORIENTATION]
-                tile, orientation = decide_texture(
-                    block[i - 1][j],  # up
-                    block[i][j - 1],  # left
-                    block[i + 1][j],  # down
-                    block[i][j + 1],  # right
-                    block[i][j]  # current
+                tileUp = block[i - 1][j] if i > 0 else None
+                tileLeft = block[i][j - 1] if j > 0 else None
+                tileDown = block[i + 1][j] if i < self.SEGMENT_HEIGHT - 1 else None
+                tileRight = block[i][j + 1] if j < self.SEGMENT_WIDTH - 1 else None
+                tile_type, orientation = decide_texture(
+                    tileUp, tileLeft, tileDown, tileRight, block[i][j]
                 )
-                block[i][j] = (self.COLORS[block[i][j].toList()], tile, orientation)
-        # unsure about the mutability so being safe
-        self.blocks[self.current_block[0], self.current_block[1]] = block
+
+                # reverse lookup in the dictionary to get the tile's code
+                for color in self.COLORS.values():
+                    if all(color == block[i][j]):
+                        tile_name = list(self.COLORS.keys())[list(self.COLORS.values()).index(color)]
+
+                sheet = TileSheet("master_sprite_sheet")
+                tile = Tile(sheet.get_tile(
+                    sheet.get_tile_code(tile_name),
+                    tile_type,
+                    orientation
+                ))
+
+                # not reusing any of the images
+                for t in used_tiles:
+                    if tile is t:
+                        tile = t
+                        break
+
+                tiled_block[i][j] = tile
+                tile.set_xy(j*16, i*16)
+
+        self.blocks[self.current_block[0]][self.current_block[1]] = tiled_block
+
+    def get_block_group(self):
+        group = pygame.sprite.Group()
+        block = self.blocks[self.current_block[0]][self.current_block[1]]
+        for row in block:
+            for tile in row:
+                group.add(tile)
+        return group
 
     def move_block(self, direction):
         """
@@ -123,6 +158,3 @@ class LevelScanner:
             "right": (i, j + 1)
         }
         self.current_block = dirs[direction]
-
-
-l = LevelScanner(1)
