@@ -75,6 +75,7 @@ class LevelScanner:
         # ones at the end may come out as slightly larger or smaller depending on issues with filesize
         self.blocks = blocks
         self.current_block = None
+        self.i, self.j = 0, 0
         self.sheet = TileSheet("master_sprite_sheet")
 
     def set_player_block(self):
@@ -89,6 +90,8 @@ class LevelScanner:
                     for pixel in row:
                         if self.COLORS["FIRST_SPAWNPOINT"] == pixel.tolist():
                             self.current_block = self.blocks[i][j]
+                            self.i = i
+                            self.j = j
                             return
 
     def set_block_texture_array(self):
@@ -156,7 +159,7 @@ class LevelScanner:
         :param direction: the direction to move; either "up", "left", "down", or "right
         """
         # just looks better than a bunch of if statements
-        i, j = np.argwhere(self.blocks == self.current_block)[0]
+        i, j = self.i, self.j
         dirs = {
             "up": (i - 1, j),
             "down": (i + 1, j),

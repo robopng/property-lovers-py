@@ -2,7 +2,7 @@ import pygame
 
 
 class Renderer:
-    def __init__(self, screen, clock, background='0', fps=60, targets=pygame.sprite.Group()):
+    def __init__(self, screen, clock, background='platformingbg1', fps=60, targets=pygame.sprite.Group()):
         self.screen = screen
         self.clock = clock
         self.fps = fps
