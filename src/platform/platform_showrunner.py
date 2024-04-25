@@ -38,7 +38,7 @@ class PlatformShowrunner:
             #  if player is colliding with the floor, keep on floor
             #  if player is colliding with block boundary, move the current block
             #   and reload the new block
-            self.poll()
+            if self.poll() == "MENU": return "MENU"
             self.renderer.display((self.level_tile_group, self.targets))
         # if player survived, and EoL reached, write out stats
         # if player died, give option to retry
@@ -53,9 +53,9 @@ class PlatformShowrunner:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: exit()
             if event.type == pygame.KEYUP:
-                self._poll_keyup(event)
+                return self._poll_keyup(event)
             if event.type == pygame.KEYDOWN:
-                self._poll_keydown(event)
+                return self._poll_keydown(event)
 
 
     def _poll_keyup(self, event):
@@ -68,3 +68,4 @@ class PlatformShowrunner:
         key = event.key
         if key == pygame.K_d: self.player.moving('right')
         if key == pygame.K_a: self.player.moving('left')
+        if key == pygame.K_ESCAPE: return "MENU"

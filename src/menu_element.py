@@ -8,7 +8,7 @@ class MenuSprite(src.static_sprite.StaticSprite):
     Any menu box item in the dating sim - dialog boxes, menu boxes, etc.
     MenuBox instances may include a listener, or may be static elements on the screen.
     """
-    def __init__(self, x, y, width, height, path, consequence=0, content=None, visible=True, image='default'):
+    def __init__(self, x, y, width, height, path, consequence=0, content='', visible=True, image='default'):
         super().__init__(path)
         self.font = pygame.font.SysFont('Comic Sans MS', 30)
         self.text_color = (0, 0, 0)
@@ -26,7 +26,10 @@ class MenuSprite(src.static_sprite.StaticSprite):
         return self.content
 
     def get_content_pos(self):
-        return self.rect.x + self.rect.w/4, self.rect.y + self.rect.h/4
+        text_rect = self.content.get_bounding_rect()
+        text_x = self.rect.x + (self.rect.w - text_rect.w)/2
+        text_y = self.rect.y + (self.rect.h - text_rect.h)/2
+        return text_x, text_y
 
     def get_consequence(self):
         return self.consequence

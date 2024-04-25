@@ -19,22 +19,21 @@ main_menu = MainMenuShowrunner(renderer)
 platformer = PlatformShowrunner(renderer)
 code_table = {
     "SIM": sim,
-    "PLAT": sim,  # platformer,
+    "PLAT": platformer,
     "MAIN_MENU": main_menu,
     "MENU": main_menu,  # functionless until the game expands to have a separate in-level menu
     "NONE": None,
     "LAST": None  # memory code
 }
-code = "SIM"
+code = "MAIN_MENU"
 
 # yield complete control to respective showrunner
 # when showrunner needs to stop, it will return code of the next showrunner in line
 while (condition := code_table[code]) is not None:
-    code_table["LAST"] = condition
+    code_table["LAST"] = code
     code = condition.begin()
     # pass unconditionally. in the case we are in a local menu (e.g. hitting the menu button inside the sim),
     # use memory to return to where we opened the menu from
     if "MENU" in code:
-        code_table[code].begin()
-        code = "LAST"
+        code = code_table[code].begin(code)
 pygame.quit()

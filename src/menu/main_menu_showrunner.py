@@ -28,13 +28,22 @@ class MainMenuShowrunner:
                 content="PLAY",
                 consequence=1
             ),
-            # MenuSprite(150, 0, 100, 100),
+            # go to platformer button
+            MenuSprite(
+                renderer.screen.get_width() / 2 - 175,
+                renderer.screen.get_height() / 2 + 150,
+                300,
+                100,
+                menu_box_path,
+                content="Platformer",
+                consequence=-1000
+            ),
             # MenuSprite(300, 0, 100, 100),
             # MenuSprite(200, 500, 100, 100),
         )
         self.sprites = pygame.sprite.Group(self.boxes)
 
-    def begin(self):
+    def begin(self, code="SIM"):
         self.renderer.set_background('platformingbg1')
         self.renderer.set_targets(pygame.sprite.Group(self.boxes))
         while True:
@@ -43,6 +52,8 @@ class MainMenuShowrunner:
                 result = results[0]
                 if result == -1:
                     exit()
+                elif result == -1000:
+                    return "PLAT"
                 elif result == 0:
                     return "NONE"
                 elif result == 1:
@@ -53,6 +64,8 @@ class MainMenuShowrunner:
         for event in pygame.event.get():
             if event.type == pygame.QUIT: exit()
             if event.type == pygame.MOUSEBUTTONUP:
-                return [box.get_consequence()
-                        for box in self.boxes
-                        if box.get_rect().collidepoint(pygame.mouse.get_pos())]
+                return [
+                    box.get_consequence()
+                    for box in self.boxes
+                    if box.get_rect().collidepoint(pygame.mouse.get_pos())
+                ]

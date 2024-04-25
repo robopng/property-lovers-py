@@ -29,7 +29,7 @@ class SimShowrunner:
         dialogue_box = '../art/sim_sprites/dialogue_box.png'
         select_path = ['../art/sim_sprites/select.png', '../art/sim_sprites/select_selected.png']
         menu_path = ['../art/sim_sprites/menu.png', '../art/sim_sprites/menu_selected.png']
-        back_path = ['../art/sim_sprites/back.png', '../art/sim_sprites/back_selected.png']
+        # back_path = ['../art/sim_sprites/back.png', '../art/sim_sprites/back_selected.png']
         next_path = ['../art/sim_sprites/next.png', '../art/sim_sprites/next_selected.png']
         self.dialogueBox = MenuSprite(384, 650, 144 * 8, 48 * 8, dialogue_box)
         self.boxes = (
@@ -38,13 +38,13 @@ class SimShowrunner:
             # begin
             # MenuSprite(500, 500, 100, 100, consequence=-101)
             # player dialog 1
-            TextSprite(328 + (12*8), 650 + (14*8), 48, 48, select_path[0], consequence=1),
+            TextSprite(328 + (12*8), 650 + (14 * 8), 48, 48, select_path[0], consequence=1),
             # player dialog 2
             TextSprite(328 + (12*8), 650 + (21 * 8), 48, 48, select_path[0], consequence=2),
             # player dialog 3
             TextSprite(328 + (12*8), 650 + (28 * 8), 48, 48, select_path[0], consequence=3),
             # npc dialog
-            TextSprite(384 - (38*8), 650 , 37*8, 17*8, next_path[0], consequence=-100),
+            TextSprite(384 - (38*8), 650, 37 * 8, 17 * 8, next_path[0], consequence=-100),
         )
         self.sprites.add(self.dialogueBox)
         self.sprites.add(self.boxes[self.STATICS])
@@ -64,7 +64,8 @@ class SimShowrunner:
         # dialog files ALWAYS start from an NPC dialog line;
         # if this method is being returned to from a menu interrupt, the loop has already guaranteed
         # that the scroll was rewound to an npc dialog line.
-        if not self.scroll.has_file(): self.scroll.load_file(self.date_code)
+        if not self.scroll.has_file():
+            self.scroll.load_file(self.date_code)
         self.boxes[self.NPC_DIALOG].set_content(self.scroll.current_line())  # FROM START in dialog file
         self.sprites.add(self.boxes[self.NPC_DIALOG])
         self.renderer.set_background(str(self.date_code) + "_BG")
@@ -107,12 +108,12 @@ class SimShowrunner:
             self.renderer.display(self.sprites, text=True)
             # sleep
         # fade out effects, show how the player did, sleep
-        while (result := self.poll()) is None: self.date_code += 1
+        while (result := self.poll()) is None: pass
         if result[0] == -10: return "MENU"
         # write save state
         self.scroll.empty_file()
-        # self.date_code += 1
-        return "PLAT"
+        self.date_code += 1
+        return "MAIN_MENU"
 
     def poll(self):
         for event in pygame.event.get():

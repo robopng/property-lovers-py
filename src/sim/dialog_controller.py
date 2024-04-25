@@ -23,11 +23,10 @@ class DialogController:
         self.name = 0
 
     def load_file(self, name):
-        self.name = name
-        if name > 100: return None
+        # self.name = name
+        # if name > 100: return None
         with open(f'../dialog/{name}.json', mode='r') as file:
             self.full_text = json.load(file)
-            print(self.full_text)
 
     def empty_file(self):
         self.full_text = []
@@ -46,7 +45,11 @@ class DialogController:
 
         while self.full_text[self.current]['from'] != 'last':
             self.current += 1
-        return [self.full_text[self.current]['text']]
+
+        try:
+            return [self.full_text[self.current]['text']]
+        except KeyError as ignored:
+            return ["player input"]
 
     def jump(self, pos):
         """
