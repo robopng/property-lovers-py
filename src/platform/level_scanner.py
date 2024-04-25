@@ -167,4 +167,5 @@ class LevelScanner:
             "right": (i, j + 1)
         }
         i, j = dirs[direction]
+        self.i, self.j = i, j
         self.current_block = self.blocks[i][j]
