@@ -40,32 +40,41 @@ def decide_texture(tileUp, tileLeft, tileDown, tileRight, activeTile):
             square
     """
     orientation = 0
-    tile = 0
-    same = [all(t == activeTile) for t in [tileUp, tileLeft, tileRight, tileDown]]
+    same = [all(t == activeTile) for t in [tileUp, tileLeft, tileDown, tileRight]]
     sameSum = sum(same)
     if sameSum == 4:
         tile = 4
-        orientation = random.choice([2, 4])
+        orientation = 2
     elif sameSum == 3:
+        tile = 4
+        if not same[0] or not same[2]:
+            orientation = 2
+        else:
+            orientation = 1
+    elif sameSum == 2:
+        if same[0] == same[2]:  # check if we should use angle
+            tile = 4
+            if same[0]:
+                orientation = 1
+            else:
+                orientation = 2
+        else:
+            tile = 3
+            if same[0]:
+                if same[1]:
+                    orientation = 1
+                else:
+                    orientation = 4
+            else:
+                if same[1]:
+                    orientation = 2
+                else:
+                    orientation = 3
+    elif sameSum == 1:
         tile = 2
         for x in range(len(same)):
-            if not same[x]:
-                orientation = (x + 2) % 4 + 1
-    elif sameSum == 2:
-        if same[0] != same[2]:  # check if we should use angle
-            tile = 3
-            for x in range(len(same)):
-                if not same[x] and not same[(x + 1) % 4]:
-                    orientation = x + 1
-        else:  # all angled options are gone, same[1] here indicates vert or hoz
-            tile = 4
-            orientation = random.choice([1 + same[0], 3 + same[0]])
-            # options are 1 and 3 (horizontal) if the top is different from middle, 2 and 4 otherwise
-    elif sameSum == 1:
-        tile = 4
-        for x in range(len(same)):
             if same[x]:
-                orientation = (x + 2) % 4
+                orientation = (x + 2) % 4 - 1
     else:
         tile = 1
         orientation = random.randint(1, 4)  # random orientation for solo tile
